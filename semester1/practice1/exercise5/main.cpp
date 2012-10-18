@@ -1,4 +1,12 @@
 /* 
+ *                                         | |   (_)      
+ *   __ _ _ __ _ __   ___   _   _ _ __   __| |    _  ___  
+ *  / _` | '__| '_ \ / _ \ | | | | '_ \ / _` |   | |/ _ \ 
+ * | (_| | |  | | | |  __/ | |_| | | | | (_| |   | | (_) |
+ *  \__,_|_|  |_| |_|\___|  \__,_|_| |_|\__,_|   | |\___/ 
+ *                                              _/ |       
+ *                                             |__/    
+ *
  * Created on 12. Oktober 2012, 21:17
  * 
  * This programm displays the biggest and smallest value available for variables
