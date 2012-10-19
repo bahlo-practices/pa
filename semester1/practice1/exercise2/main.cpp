@@ -9,7 +9,7 @@
  *
  * Created on 12. Oktober 2012, 21:17
  * 
- *  Gibt die vorgegebenen Sätze auf der Konsole aus
+ * Gibt die vorgegebenen Sätze auf der Konsole aus
  */
 
 #include <iostream>
