@@ -24,11 +24,11 @@ using std::vector;
 using std::endl;
 
 int main() {
-    // initialize variables
+    // Initialize variables
     int iNumber = 0;
     vector<string> vNumbers;
     
-    // no idea how to get the vector initialized, so the "ugly" solution:
+    // No idea how to get the vector initialized, so the "ugly" solution:
     vNumbers.push_back("null");
     vNumbers.push_back("eins");
     vNumbers.push_back("zwei");
@@ -41,10 +41,10 @@ int main() {
     vNumbers.push_back("neun");
     vNumbers.push_back("zehn");
     
-    // get number
+    // Get number
     cin >> iNumber;
     
-    // get value from vectorand cout it
+    // Get value from vectorand cout it
     cout << vNumbers[iNumber] << endl;
     
     return 0;
