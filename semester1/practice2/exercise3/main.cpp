@@ -18,10 +18,11 @@
 using std::cin;
 using std::cout;
 using std::string;
+using std::endl;
 
 int main() {
     // initialize variables
-    string opt = ""; // operator
+    char opt = '+'; // operator
     double opd1 = 0.0; // operand 1
     double opd2 = 0.0; // operand 2
     double res = 0.0; // result
@@ -31,14 +32,22 @@ int main() {
     cin >> opt >> opd1 >> opd2;
     
     // check which operator and calculate the result
-    if(opt == "+") {
-        res = opd1 + opd2;
-    } else if(opt == "-") {
-        res = opd1 - opd2;
-    } else if(opt == "*") {
-        res = opd1 * opd2;
-    } else if(opt == "/") {
-        res = opd1 / opd2;
+    switch(opt){
+        case '+':
+            res = opd1 + opd2;
+            break;
+        case '-':
+            res = opd1 - opd2;
+            break;
+        case '*':
+            res = opd1 * opd2;
+            break;
+        case '/':
+            res = opd1 / opd2;
+            break;
+        default: 
+            cout << "Dieser Operator wird nicht unterst\x81tzt." << endl;
+            return -1;
     }
     
     // display the result

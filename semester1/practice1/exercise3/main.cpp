@@ -43,7 +43,7 @@ int main( ) {
             output[1] = input[2];
             output[2] = input[1];
         }
-    } else if(input[1] <= input[0] && input[1] <= input[2]) {
+    } if(input[1] <= input[0] && input[1] <= input[2]) {
         //the second is the smallest
         output[0] = input[1];
         if(input[0] < input[2]) {
@@ -53,7 +53,7 @@ int main( ) {
             output[1] = input[2];
             output[2] = input[0];
         }
-    } else if(input[2] <= input[0] && input[2] <= input[0]) {
+    } if(input[2] <= input[0] && input[2] <= input[0]) {
         // the third is the smallest
         output[0] = input[2];
         if(input[0] <= input[1]) {
