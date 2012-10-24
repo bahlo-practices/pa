@@ -1,10 +1,11 @@
 General
 =========
 
-This repo is for C++, I will create another one for Assembler when necessary
+This repo contains all exercises for the practices in "Programmieren, Algorithmen und Datenstrukturen".
 
-Rules
-======
+License
+=======
 
-- Mark unfinished exercises with an underscore (_) in the filename of the project (e.g. _exercise1)
-- Make comments in english
+This project is licensed under the WTFPL (<http://sam.zoy.org/wtfpl/>), for more information see LICENSE.txt
+
+**Please use this as an inspiration, not as an invitation to copy it. We don't want to justify our code.**
