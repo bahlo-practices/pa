@@ -11,8 +11,6 @@
  * 
  * This programm calculates the squareroot of a number
  * 
- * TODO: b + c;
- * 
  */
 
 #include <iostream>
@@ -23,6 +21,7 @@ using std::cout;
 using std::string;
 
 using std::sqrt;
+using std::endl;
 
 int main() {
     // initialize variables
@@ -32,6 +31,12 @@ int main() {
     // prompt the user to make an input
     cout << "Geben Sie eine Gleitkommazahl >= 0 ein: ";
     cin >> dFpn;
+    
+    // check if smaller 0
+    if(dFpn < 0) {
+        cout << "\nMan kann keine Wurzel von einer negativen Zahl nehmen!" << endl;
+        return -1;
+    }
     
     // calculate squareroot
     dFpnRoot = sqrt(dFpn);

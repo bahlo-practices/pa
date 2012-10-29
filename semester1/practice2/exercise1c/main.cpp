@@ -25,9 +25,17 @@ int main() {
     int dPrecision = 0;
     double dInterim = 1.0;
     
-    // Prompt user for input
+    // Prompt user for number
     cout << "Bitte Dezimalzahl eingeben, dessen Quadratwurzel berechnet werden soll: ";
     cin >> dNumber;
+    
+    // check if smaller 0
+    if(dNumber < 0) {
+        cout << "\nMan kann keine Wurzel von einer negativen Zahl nehmen!" << endl;
+        return -1;
+    }
+    
+    // Prompt for precision
     cout << "\nGeben Sie die Genauigkeit ein, mit der die Berechnung stattfinden soll (empfohlen: 8): ";
     cin >> dPrecision;
     
@@ -43,7 +51,7 @@ int main() {
     }
     
     // Cout the result
-    cout << "\nDas Ergebnis mit " << dPrecision << "-facher Genauigkeit lautet: " << dInterim;
+    cout << "\nDas Ergebnis mit " << dPrecision << "-facher Genauigkeit lautet: " << dInterim << endl;
             
     return 0;
 }

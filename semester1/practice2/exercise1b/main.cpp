@@ -18,6 +18,8 @@
 using std::cout;
 using std::cin;
 
+using std::endl;
+
 int main() {
     // Initialize variables
     double zahl = 0.0;
@@ -28,6 +30,12 @@ int main() {
     cout << "Bitte Dezimalzahl eingeben, dessen Quadratwurzel berechnet werden soll: ";
     cin >> zahl;
     
+    
+    // check if smaller 0
+    if(zahl < 0) {
+        cout << "\nMan kann keine Wurzel von einer negativen Zahl nehmen!" << endl;
+        return -1;
+    }
     
     // Calculate in 8 steps
     x1 = 0.5 * (x0 + zahl / x0);
@@ -47,7 +55,7 @@ int main() {
     cout << "\nWert in fünfter Berechnung: " << x5;
     cout << "\nWert in sechster Berechnung: " << x6;
     cout << "\nWert in siebter Berechnung: " << x7;
-    cout << "\nWert in achter Berechnung: " << x8;
+    cout << "\nWert in achter Berechnung: " << x8 << endl;
     
     return 0;
 }

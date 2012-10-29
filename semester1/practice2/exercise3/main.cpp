@@ -46,7 +46,7 @@ int main() {
             res = opd1 / opd2;
             break;
         default: 
-            cout << "Dieser Operator wird nicht unterst\x81tzt." << endl;
+            cout << "Der Operator \"" << opt << "\" wird nicht unterst\x81tzt." << endl;
             return -1;
     }
     

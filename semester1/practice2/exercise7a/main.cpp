@@ -44,6 +44,12 @@ int main() {
     // Get number
     cin >> iNumber;
     
+    // Check if number ok
+    if(iNumber < 0 || iNumber > 10) {
+        cout << "Diese Zahl wird nicht unterstützt!" << endl;
+        return -1;
+    }
+    
     // Get value from vectorand cout it
     cout << vNumbers[iNumber] << endl;
     
