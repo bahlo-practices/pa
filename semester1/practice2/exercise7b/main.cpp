@@ -22,14 +22,14 @@ using std::string;
 
 using std::vector;
 using std::endl;
-using std::find;
 
 int main() {
     // Initialize variables
     string sNumber = "";
     vector<string> vNumbers;
     string result = "";
-    
+    int i=0;
+
     // No idea how to get the vector initialized, so the "ugly" solution:
     vNumbers.push_back("null");
     vNumbers.push_back("eins");
@@ -42,23 +42,35 @@ int main() {
     vNumbers.push_back("acht");
     vNumbers.push_back("neun");
     vNumbers.push_back("zehn");
-    
+    vNumbers.push_back("0");
+    vNumbers.push_back("1");
+    vNumbers.push_back("2");
+    vNumbers.push_back("3");
+    vNumbers.push_back("4");
+    vNumbers.push_back("5");
+    vNumbers.push_back("6");
+    vNumbers.push_back("7");
+    vNumbers.push_back("8");
+    vNumbers.push_back("9");
+    vNumbers.push_back("10");
+
     // Get number
     cout << "Geben Sie eine beliebige Ziffer von 0 bis 10 ein (als Zahl oder als Text): ";
     cin >> sNumber;
-    
-    // Get position of string in vector (if there)
-    int pos = find(vNumbers.begin(), vNumbers.end(), sNumber) - vNumbers.begin();
-    
-    // Check if element is in vector and cout the result
-    if(pos < vNumbers.size()) {
-        // Element is in vector
-        cout << pos << endl;
-    } else {
-        // Element is not in vector => is numeric
-        int iNumber = atoi(sNumber.c_str());
-        cout << vNumbers[iNumber] << endl;
+
+    //find match
+    while(vNumbers[i]!=sNumber){
+        i++;
     }
-    
+
+    if(i>11&&i<=22){
+        i = i -11;
+        cout << "Zahl: " << vNumbers[i] << endl;
+    }
+    else{
+        i=i+11;
+        cout << "Ziffer: " << vNumbers[i] << endl;
+    }
+
     return 0;
 }
