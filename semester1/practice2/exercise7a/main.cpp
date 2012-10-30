@@ -49,7 +49,7 @@ int main() {
     }
     
     // Get value from vectorand cout it
-    cout << vNumbers[iNumber] << endl;
+    cout << vNumbers.at(iNumber) << endl;
     
     return 0;
 }
