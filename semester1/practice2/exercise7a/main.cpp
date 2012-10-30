@@ -39,6 +39,9 @@ int main() {
     vNumbers.push_back("neun");
     vNumbers.push_back("zehn");
     
+    // Prompt for values
+    cout << "Geben Sie eine beliebige Zahl von 0 bis 10 ein:" << endl;
+    
     // Get number
     cin >> iNumber;
     

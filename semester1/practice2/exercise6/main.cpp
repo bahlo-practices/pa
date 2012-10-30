@@ -31,17 +31,23 @@ int main() {
     int i = 0;
     string tmp1 = "";
     int tmp2 = 0;
-    while(true) {
+    bool bBreak = false;
+    
+    // Prompt for values
+    cout << "Geben Sie einen Namen und einen Wert getrennt durch ein Leerzeichen ein." << endl;
+    cout << "Beenden Sie die Eingabe indem Sie \"noname\" und 0 eingeben." << endl;
+    
+    while(bBreak == false) {
         cin >> tmp1 >> tmp2;
         if(tmp1 == "noname" && tmp2 == 0) {
-            break;
+            bBreak = true;
         } else {
             // check if name exists
             // for-loop because find() didn't work
             for(int ci = 0; ci < vNames.size(); ci++){
                 if(vNames[ci] == tmp1) {
                     cout << "Fehler: Das haben Sie bereits eingegeben." << endl;
-                    return false;
+                    return -1;
                 }
             }
             

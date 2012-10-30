@@ -26,14 +26,8 @@ int main() {
     char erneut='a';
 
     do{
-        cout << "Zwei positive ganze Zahlen eingeben: ";
+        cout << "Zwei positive ganze Zahlen eingeben um den gr\x94\xe1ten gemeinsamen Teiler zu berechnen: ";
         cin >> i1 >> i2;
-        
-        // Check if > 0
-        if(i1 < 0 || i2 < 0) {
-            cout << "Die Zahlen d\x81rfen nicht kleiner als 0 sein!" << endl;
-            return -1;
-        }
         
         while( i1 != i2 ){
         cout << "\t(" << i1 << "," << i2 << ")" << endl;

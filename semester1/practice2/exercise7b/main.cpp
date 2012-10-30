@@ -53,7 +53,7 @@ int main() {
     vNumbers.push_back("10");
 
     // Get number
-    cout << "Geben Sie eine beliebige Ziffer von 0 bis 10 ein (als Zahl oder als Text): ";
+    cout << "Geben Sie eine beliebige Zahl von 0 bis 10 ein (als Ziffern oder als Text): ";
     cin >> sNumber;
 
     //find match

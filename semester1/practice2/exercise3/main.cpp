@@ -4,6 +4,7 @@
  *  |__ < 
  *  ___) |
  * |____/ 
+ * 
  * Created on 18. Oktober 2012, 21:21
  * 
  * This is a simple text calculator
@@ -25,6 +26,7 @@ int main() {
     double res = 0.0; // result
     
     // receive input
+    cout << "Geben Sie den Operator und die drei Operanden getrennt durch ein Leerzeichen ein und best\x84tigen Sie mit \(Enter\)." << endl;
     cout << "Operation: ";
     cin >> opt >> opd1 >> opd2;
     

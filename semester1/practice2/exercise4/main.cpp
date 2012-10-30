@@ -27,8 +27,12 @@ int main() {
     vector<double> vTemps;
     double temp = 0.0;
     
+    // Prompt for values
+    cout << "Geben Sie nacheinander Zahlen ein und best\x84tigen Sie mit \(Enter\)." << endl;
+    cout << "Wenn Sie fertig sind, geben Sie \"quit\" ein." << endl;
+    
     // Read values and save them to vector
-    while( cin >> temp )
+    while( cin >> temp)
     vTemps.push_back( temp );
     
     // Arithm. middle

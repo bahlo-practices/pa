@@ -51,6 +51,7 @@ int main() {
     // Cout the result
     cout << "\nDas Ergebnis mit " << dPrecision << "-facher Genauigkeit lautet: " << dInterim << endl;
     cout << "Zur \x9a \bberpr\x81 \bfung: Das Quadrat von " << dInterim << " ist " << (dInterim * dInterim) << endl;
+    cout << "Das Ergebnis unterscheidet sich um " << dNumber - (dInterim * dInterim) << endl;
             
     return 0;
 }
