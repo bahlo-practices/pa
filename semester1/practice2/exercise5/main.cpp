@@ -7,7 +7,7 @@
  * 
  * Created on 22. Oktober 2012, 19:39
  * 
- * Ein einfaches Wörterbuch
+ * A simple dictionary
  * 
  */
 
