@@ -1,12 +1,9 @@
-/*    _                         _                         
- *   (_)                       | |                        
- *    _  ___    _   _ _ __   __| |   __ _ _ __ _ __   ___ 
- *   | |/ _ \  | | | | '_ \ / _` |  / _` | '__| '_ \ / _ \
- *   | | (_) | | |_| | | | | (_| | | (_| | |  | | | |  __/
- *   | |\___/   \__,_|_| |_|\__,_|  \__,_|_|  |_| |_|\___|
- *  _/ |                                                  
- * |__/                                                   
- * 
+/*  ____  
+ * |___ \ 
+ *   __) |
+ *  |__ < 
+ *  ___) |
+ * |____/ 
  * Created on 18. Oktober 2012, 21:21
  * 
  * This is a simple text calculator
@@ -43,6 +40,10 @@ int main() {
             res = opd1 * opd2;
             break;
         case '/':
+            if(opd2 == 0){
+                cout << "Man kann nicht durch 0 teilen!" << endl;
+                return false;
+            }
             res = opd1 / opd2;
             break;
         default: 
