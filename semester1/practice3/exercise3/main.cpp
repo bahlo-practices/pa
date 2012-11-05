@@ -12,11 +12,16 @@
  */
 
 #include <iostream>
+#include <iomanip>
 
 using std::cin;
 using std::cout;
 using std::string;
 using std::endl;
+
+// Manipulators
+using std::setw;
+using std::right;
 
 int main() {
     // Initialize variables
@@ -27,16 +32,7 @@ int main() {
     for(int i = 1; i <= 10; i++) {
     	for (int ii = 1; ii <= 10; ii++) {
     		tmp = i * ii;
-    		if(tmp <= 9) {
-    			spaces = "   ";
-    		}
-    		if(tmp > 9 && tmp <= 99) {
-    			spaces = "  ";
-    		}
-    		if(tmp > 99) {
-    			spaces = " ";
-    		}
-    		cout << spaces << tmp;
+                cout << right << setw(4) << tmp;
     	}
     	cout << endl;
     }
