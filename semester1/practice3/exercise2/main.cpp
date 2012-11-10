@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include "myError.h"
+#include <sstream>
 
 using std::cin;
 using std::cout;
@@ -21,43 +22,62 @@ using std::cerr;
 using std::string;
 using std::endl;
 using std::vector;
+using std::stringstream;
 
 int main() {
     try {
         // Initialize objects
+        stringstream convertstod;
+        bool run = true;
+        string values = " ";
         vector<double> vNumbers;
         double dTemp = 0.0;
         int iAdd = 0;
         double dResult = 0.0;
 
-
         // Prompt
-        cout << "Geben Sie einige Zahlen ein (mit 'q' beenden Sie die Eingabe): " << endl;
+        cout << "Geben Sie einige Zahlen ein (mit 'q' beenden Sie die Eingabe): ";
 
         // Read in Numbers
-        while(cin >> dTemp) {    
-            vNumbers.push_back(dTemp);
+        while (run) {
+            cin >> values;
+            convertstod << values;
+            convertstod >> dTemp;
+            if (values == "q") {
+                run = false;
+            } else {
+                vNumbers.push_back(dTemp);
+                convertstod.clear();
+            }
+
+        }
+
+        //Check vector for input errors
+        for (int i = 0; i < vNumbers.size(); i++) {
+            if (vNumbers.at(i) == 0) {
+                error("Fehler: Es befindet sich mindestens ein Ungueltiges Element im Vector!"
+                        " Bitte nur Zahlen oder ein q zum Beenden eingeben");
+            }
         }
 
         // Prompt and read in number of summarized numbers
         cout << "Wie viele Zahlen sollen aufaddiert werden: " << endl;
-        cin >> iAdd; // WHY U NO ASK FOR iAdd
-        iAdd = 3;
+        cin >> iAdd;
 
         // Calculate result
-        for(int i = 0; i < iAdd; i++) {
+        for (int i = 0; i < iAdd; i++) {
             dResult += vNumbers.at(i);
         }
 
         // Cout result
         cout << "Die Summe der " << iAdd << " Elemente ";
-        for(int i = 0; i < iAdd; i++) {
+        for (int i = 0; i < iAdd; i++) {
             cout << vNumbers.at(i);
-            if(i < iAdd - 2) {
+            if (i < iAdd - 2) {
                 // All elements before the last two
                 cout << ", ";
             }
-            if(i == iAdd - 2) {
+            if (i == iAdd - 2) {
                 // Second last element
                 cout << " und ";
             }
@@ -65,6 +85,7 @@ int main() {
         cout << " ist " << dResult << "." << endl;
 
         return 0;
+
     } catch (runtime_error& e) {
         cerr << e.what();
         return -3;
