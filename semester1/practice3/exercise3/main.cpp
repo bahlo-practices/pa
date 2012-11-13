@@ -26,7 +26,6 @@ using std::right;
 int main() {
     // Initialize variables
     int tmp = 0;
-    string spaces = "";
 	
     // Calculation
     for(int i = 1; i <= 10; i++) {

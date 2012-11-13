@@ -1,13 +1,25 @@
-/* 
- * File:   main.cpp
+/*  _  _   
+ * | || |  
+ * | || |_ 
+ * |__   _|
+ *    | |  
+ *    |_|  
  *
- * Created on 10. November 2012, 22:23
+ * Created on 07. November 2012, 13:23
+ * 
+ * Ein Programm, welches Terme entgegennimmt und das Ergebnis zurückliefert.
+ * 
  */
 
 #include <iostream>
-#include "error.h"
+#include "myError.h"
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::cerr;
+using std::string;
+using std::exception;
 
 class Token {
     public: 
@@ -28,7 +40,7 @@ class Token_stream {
         Token_stream( ) : full( false ), buffer( ' ' ) {} // Konstruktor 
         void putback( Token t ) // Token "zurückstellen" 
         {
-            if( full ) error( "Token_stream::putback(), Puffer voll" );
+            if( full ) error( "Puffer voll" );
             buffer = t; full = true; 
         };
         Token get( ); // Token aus cin erzeugen
@@ -41,24 +53,25 @@ Token Token_stream::get( ) {
     if( full ) { full = false; return buffer; }
     char ch = ' '; cin >> ch;
     switch( ch ) {
-        case ';': // Ende eines Rechenausdrucks 
-        case 'q': // Programmende
+        case ';': // end term
+        case 'q': // exit
         case '(': case ')': case '+': case '-': case '*': case '/': case '?':
-        return Token( ch ); // jedes Zeichen ist sein eigenes Token
+        return Token( ch ); 
         case '.': case '0': case '1': case '2': case '3': case '4':
-        case '5': case '6': case '7': case '8': case '9': // Zahl als Token
+        case '5': case '6': case '7': case '8': case '9':
         {
-            cin.putback( ch ); // der cin Stromkennt auch ein putback()
+            cin.putback( ch );
             double val = 0.0; cin >> val;
             return Token( '9', val );
         }
-        default: error( "Token Token_stream::get(), unbekanntes Token" );
+        default: error( "unbekanntes Token" );
     }
 }
 
 double rechenausdruck( Token_stream& Ts );
 
-double faktor( Token_stream& Ts ) { // Zahlen und Klammern behandeln
+double faktor( Token_stream& Ts ) {
+    // Klammern und Zahlen
     Token t = Ts.get( );
     switch( t.kind ) {
         case '(':
@@ -71,11 +84,12 @@ double faktor( Token_stream& Ts ) { // Zahlen und Klammern behandeln
         case '9': return t.value;
         case '-': return -faktor( Ts );
         case '+': return faktor( Ts );
-        default: error( "Faktor erwartet!\n" );
+        default: error( "Operator erwartet!\n" );
     }
 }
 
-double summand( Token_stream& Ts ) { // "mal" und "geteilt durch" behandeln
+double summand( Token_stream& Ts ) {
+    // Mal und geteilt
     double li = faktor( Ts );
     Token t = Ts.get( );
     while( true ) {
@@ -84,7 +98,7 @@ double summand( Token_stream& Ts ) { // "mal" und "geteilt durch" behandeln
             case '/':
             {
                 double d = faktor( Ts );
-                if( d==0 ) error( "Div. durch 0!\n" );
+                if( d==0 ) error( "Teilen durch 0 nicht m\x94glich!\n" );
                 li /= d; t = Ts.get( ); break;
             }
             default: Ts.putback( t ); return li;
@@ -92,7 +106,8 @@ double summand( Token_stream& Ts ) { // "mal" und "geteilt durch" behandeln
     }
 }
 
-double rechenausdruck( Token_stream& Ts ) { // "plus" und "minus" behand
+double rechenausdruck( Token_stream& Ts ) {
+    // Plus und minus
     double li = summand( Ts );
     Token t = Ts.get( );
     while( true ) {
@@ -108,7 +123,7 @@ int main( ) {
     try
     {
         Token_stream T;
-        cout << "Bitte geben sie einen Rechenausdruck ein: (? fuer Hilfe)\n";
+        cout << "Bitte geben Sie den Term ein (f\x81r Hilfe ?):" << endl;
         while( cin ) { 
             Token t = T.get();
             while( t.kind == ';' )
@@ -117,19 +132,17 @@ int main( ) {
             }
             if( t.kind == '?' )
             {
-                cout << "Geben sie einen mathematischen Term ein der ausgerechnet werden soll.\n";
-                cout << "Verwendbare Zeichen sind + - * / ( )\n";
-                cout << "Verwenden sie * zum multiplizieren und / zum dividieren.\n";
-                cout << "Trennen sie mehrere Eingaben mit ;\n";
-                cout << "Beenden sie ihre Eingabe mit q.\n";
+                cout << "Erlaubte Operatoren: + - * / ( )" << endl;
+                cout << "Sie können mehrere Terme eingeben, trennen Sie diese mit ;" << endl;
+                cout << "Geben Sie \"q\" ein, um das Programm zu beenden.";
                 continue;
             }
             if( t.kind == 'q' ) 
             {
                 return 0;
             }
-            T.putback( t );
-            cout << "=" << rechenausdruck( T ) << endl;
+            T.putback(t);
+            cout << "Das Ergebnis ist: " << rechenausdruck(T) << endl;
         }
         return 0;
     }
@@ -137,7 +150,7 @@ int main( ) {
         cerr << "Ausnahme: " << e.what(); 
         return -2;
     }
-    catch( ... ) { // Ausnahmen beliebigen Typs
+    catch( ... ) {
         cerr << "Unbekannte Ausnahme";
         return -1;
     }
