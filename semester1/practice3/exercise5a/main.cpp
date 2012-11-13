@@ -62,7 +62,7 @@ int main() {
         run = true;
         while (run) {
             for (int i = 0; i < allValues.size(); i++) {
-                if (allValues.at(i) == "Montag" || allValues.at(i) == "Mo") {
+                if (allValues.at(i) == "Montag" || allValues.at(i) == "Mon") {
                     i++;
                     sTemp = allValues.at(i);
                     convertstod << sTemp;
