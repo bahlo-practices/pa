@@ -17,7 +17,7 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran.exe
+FC=gfortran
 AS=as.exe
 
 # Macros

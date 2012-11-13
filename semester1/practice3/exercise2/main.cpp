@@ -36,7 +36,7 @@ int main() {
         double dResult = 0.0;
 
         // Prompt
-        cout << "Geben Sie einige Zahlen ein (mit 'q' beenden Sie die Eingabe): ";
+        cout << "Geben Sie einige Zahlen ein (mit 'q' beenden Sie die Eingabe): " << endl;
 
         // Read in Numbers
         while (run) {

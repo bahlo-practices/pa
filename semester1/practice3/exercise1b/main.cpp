@@ -1,8 +1,14 @@
-/* 
- * File:   main.cpp
- * Author: Arne Leiblein, Johannes Wahl
+/*  __ _     
+ * /_ | |    
+ *  | | |__  
+ *  | | '_ \ 
+ *  | | |_) |
+ *  |_|_.__/ 
+ *  
  * Description: Displays a number in text and reverse
+ * 
  * Created on 4. November 2012, 12:46
+ * 
  */
 
 #include <iostream>

@@ -7,7 +7,7 @@
  *
  * Created on 07. November 2012, 13:23
  * 
- * Ein Programm, welches Terme entgegennimmt und das Ergebnis zurückliefert.
+ * Nimmt Terme entgegen und liefert das Ergebnis zurück.
  * 
  */
 

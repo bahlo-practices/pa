@@ -1,8 +1,14 @@
-/* 
- * File:   main.cpp
- * Author: Arne Leiblein & Johannes Wahl
+/*  __       
+ * /_ |      
+ *  | | __ _ 
+ *  | |/ _` |
+ *  | | (_| |
+ *  |_|\__,_|
+ *           
  * Description: calculates greatest common divisor
+ * 
  * Created on 4. November 2012, 10:27
+ * 
  */
 
 #include <iostream>
