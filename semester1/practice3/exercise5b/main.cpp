@@ -36,6 +36,8 @@ int main( ) {
         weeks.push_back(Name_values("Sonntag", v));
         string day = "";
         int value = 0;
+        int invalid=0;
+        int counter=0;
 
         while(true) {
                 if( cin >> day ) {
@@ -63,7 +65,8 @@ int main( ) {
                         }
                         if( day == "So" || day == "Son" || day == "Sonntag") {
                             weeks.at(6).add_value(value);
-                        }
+                        }                 
+                        counter++;
                     }
                     else {
                         error( "Sie haben entweder keinen g\x81ltigen Tag oder keinen g\x81ltigen Wert eingegeben!\nGebene Sie einen Tag und einen zugeh\x94rigen Wert getrennt durch ein Leerzeichen ein.\n");
@@ -80,6 +83,7 @@ int main( ) {
                 weeks.at(i).print_all();
             }
             cout << endl << endl;
+            cout << "Counter: "<<counter;
             
         return 0;
     }
