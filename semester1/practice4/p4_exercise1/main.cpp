@@ -1,7 +1,7 @@
 /* 
  * File:   main.cpp
- * Author: Tobias
- *
+ * Author: Johannes Wahl
+ * Description: checks Date for validity
  * Created on 21. November 2012, 16:44
  */
 
@@ -10,9 +10,6 @@
 #include <iostream>
 using namespace std;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
 try {
 //        Date datum1( 2011, Date::Jan, 29 );
