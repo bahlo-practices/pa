@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>mp3Tag.h</itemPath>
+      <itemPath>mp3TagList.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -15,6 +16,7 @@
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
       <itemPath>mp3Tag.cpp</itemPath>
+      <itemPath>mp3TagList.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

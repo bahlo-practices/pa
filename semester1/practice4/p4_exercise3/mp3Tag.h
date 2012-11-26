@@ -22,7 +22,6 @@ public:
     
     void printall();
     void setkopierschutz(bool value);
-    //void populate(mp3Tag item);
     
     string interpret( )    const { return i; }
     string titel( ) const { return t; }
