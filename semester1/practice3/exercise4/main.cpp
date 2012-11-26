@@ -5,7 +5,7 @@
  *    | |  
  *    |_|  
  *
- * Created on 07. November 2012, 13:23
+ * Created on 09. November 2012, 13:23
  * 
  * Nimmt Terme entgegen und liefert das Ergebnis zurück.
  * 
@@ -51,8 +51,9 @@ class Token_stream {
 
 Token Token_stream::get( ) {
     if( full ) { full = false; return buffer; }
-    char ch = ' '; cin >> ch;
-    switch( ch ) {
+    char ch = ' '; 
+    cin >> ch;
+    switch(ch) {
         case ';': // end term
         case 'q': // exit
         case '(': case ')': case '+': case '-': case '*': case '/': case '?':
@@ -60,7 +61,7 @@ Token Token_stream::get( ) {
         case '.': case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
         {
-            cin.putback( ch );
+            cin.putback(ch);
             double val = 0.0; cin >> val;
             return Token( '9', val );
         }
@@ -78,7 +79,7 @@ double faktor( Token_stream& Ts ) {
         {
             double d = rechenausdruck( Ts );
             t = Ts.get( );
-            if( t.kind != ')' ) error( ") erwartet!\n" );
+            if( t.kind != ')' ) error( "Klammer zu erwartet!\n" );
                 return d;
         }
         case '9': return t.value;

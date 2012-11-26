@@ -1,8 +1,12 @@
-/* 
- * File:   main.cpp
- * Author: Arne Leiblein & Johannes Wahl
+/*  _____       
+ * | ____|      
+ * | |__   __ _ 
+ * |___ \ / _` |
+ *  ___) | (_| |
+ * |____/ \__,_|          
  *
  * Created on 11. November 2012, 10:29
+ * 
  */
 
 #include <iostream>
@@ -23,7 +27,6 @@ using std::cerr;
 
 int main() {
     try {
-
         vector<int>Montag;vector<int>Dienstag;vector<int>Mittwoch;
         vector<int>Donnerstag;vector<int>Freitag;vector<int>Samstag;
         vector<int>Sonntag;vector<string>allValues;
@@ -174,9 +177,9 @@ int main() {
         }
         if (iSocommon > 0)cout << "Durchschnitt der Werte in Sonntag: " << (double) iSocommon / Sonntag.size() << endl;
 
-        invalidinput--;
-        invalidinput = invalidinput / 2;
-        invalidinput = invalidinput - counter;
+        invalidinput--; // Trim white spaces
+        invalidinput = invalidinput / 2; // Get value-pairs
+        invalidinput = invalidinput - counter; // Subtract all valid values
         if (invalidinput > 0) {
             cout << "Anzahl ignorierter Wertpaare aufgrund von Falscheingabe: " << invalidinput << endl;
         } else {
@@ -189,7 +192,7 @@ int main() {
         cerr << e.what();
         return -3;
     } catch (out_of_range& e) {
-        cerr << endl << "Fehler: Ungueltiger Bereich im Vector!!." << endl;
+        cerr << endl << "Fehler: Ungueltiger Bereich im Vector!" << endl;
         return -2;
     } catch (...) {
         cerr << endl << "Unbekannter Fehler!" << endl;

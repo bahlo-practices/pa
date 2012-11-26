@@ -21,11 +21,10 @@ using std::string;
 using std::vector;
 using std::endl;
 using std::cerr;
+using std::out_of_range;
 
 int main() {
-
     try {
-
         // Initialize variables
         string sNumber = "";
         vector<string> vNumbers;

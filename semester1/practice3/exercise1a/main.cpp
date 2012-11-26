@@ -5,7 +5,7 @@
  *  | | (_| |
  *  |_|\__,_|
  *           
- * Description: calculates greatest common divisor
+ * Calculates greatest common divisor
  * 
  * Created on 4. November 2012, 10:27
  * 
