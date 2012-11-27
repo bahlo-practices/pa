@@ -10,7 +10,7 @@
 using namespace std;
 
 const mp3Tag& default_mp3Tag() { 
-    static const mp3Tag defmp3Tag("Max Mustermann", "Mustersong", 20, true, mp3Tag::Rock);
+    static const mp3Tag defmp3Tag("Max Mustermann", "Mustersong", 2,59, true, mp3Tag::Rock);
     return defmp3Tag;
 }
 
@@ -19,7 +19,8 @@ mp3Tag::mp3Tag()
             t(default_mp3Tag().titel()),
         d(default_mp3Tag().dauer()),
         k(default_mp3Tag().kopierschutz()),
-        g(default_mp3Tag().genre()){}
+        g(default_mp3Tag().genre())
+{}
 
 mp3Tag::mp3Tag(string interpret, string titel, double dauer, bool kopierschutz, Genre genre)
         :i(interpret),
@@ -27,12 +28,21 @@ mp3Tag::mp3Tag(string interpret, string titel, double dauer, bool kopierschutz, 
         d(dauer),
         k(kopierschutz),
         g(genre)
-{}
+        {if (!check()) throw Invalid();}
+
+mp3Tag::mp3Tag(string interpret, string titel, int minuten, int sekunden, bool kopierschutz, Genre genre)
+        :i(interpret),
+        t(titel),
+        m(minuten),
+        s(sekunden),
+        k(kopierschutz),
+        g(genre)
+        {if (!check()) throw Invalid();}
 
 void mp3Tag::printall(){
     cout<<"Interpret:\t"<<i<<endl;
     cout<<"Titel:\t\t"<<t<<endl;
-    cout<<"Dauer:\t\t"<<d<<endl;
+    cout<<"Dauer:\t\t"<<m<<","<<s<<endl;
     
     string out (" ");
     switch(g){
@@ -71,6 +81,12 @@ void mp3Tag::setkopierschutz(bool value){
     if(value==false){
         k=false;
     }
+}
+
+bool mp3Tag::check(){
+    if (m<0) return false;
+    if (m<0 || s>59) return false;
+    return true;
 }
     
 

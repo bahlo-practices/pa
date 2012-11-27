@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>mp3Tag.h</itemPath>
       <itemPath>mp3TagList.h</itemPath>
+      <itemPath>myError.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
