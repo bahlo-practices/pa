@@ -31,7 +31,7 @@ int main() {
         mp3Tag lied7("Megadeth", "I thought i knew it all", 5, 00, true, mp3Tag::Rock);
         mp3Tag lied8("AC DC", "Thunderstruck", 2, 4, true, mp3Tag::Rock);
         mp3Tag lied9("Iced Earth", "The Reckoning", 3, 23, true, mp3Tag::Rock);
-        mp3Tag lied10("In Flames", "The Quiet Place", 3, 23, true, mp3Tag::Rock);
+        mp3Tag lied10("In Flames","The Quiet Place", 3, 23,true, mp3Tag::Rock);
 
         liste.populate(lied1);
         liste.populate(lied2);
@@ -48,7 +48,7 @@ int main() {
 
         return 0;
     } catch (mp3Tag::Invalid) {
-        cerr << "Die Dauer des Titels ist ungueltigt";
+        cerr << "Fehler im mp3Tag";
     } catch (exception &e) {
         cerr << "Ausname: " << e.what();
     } catch (...) {

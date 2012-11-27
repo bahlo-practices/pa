@@ -12,40 +12,39 @@
  */
 
 #include <cstdlib>
-#include "date.h"
 #include <iostream>
+#include "date.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
 try {
-//        Date datum1( 2011, Date::Jan, 29 );
-//        cout << datum1 << endl;
-//        for( int i=-13; i<=13; ++i ) { // unterschiedlich große Inkremente
-//            datum1.add_month( i );
-//            cout << datum1 << endl;
-//        }
-//        Date datum2;
-//        cout << datum2 << endl;
-//        Date::Month mt( datum2.month() );
-//        for( int i=0; i<=12; ++i ) cout << ++mt << ' ';
-//    
-//    Date datum3 (2012, Date::Nov, 23);
-//    datum3.print();
-//    for (int i=0; i<=10; i++){
-//        datum3.inc_day(i);
-//        cout << datum3<<endl;
-//        datum3.print();
-//    }
-//    Date datum3 (2012, Date::Jan, 25);
-//    Date datum4 (2012, Date::Jan, 24);
-//    int a = datum3.compareTo(datum3,datum4);
-//    cout << a;
-    
-    Date datum2 (1850, Date::Dez, -15);
-    datum2.print();
-    
+   Date datum1(2011, Date::Jan, 29);
+        datum1.print();
+        for (int i = -13; i <= 13;++i) { // unterschiedlich große Inkremente
+            datum1.add_month(i);
+            datum1.print();
+            
+        }
+       
+        cout << endl << endl;
         
-        // usw. 
+        Date datum3(2012, Date::Nov, 23);
+        datum3.print();
+        for (int i = 0; i <= 5; i++) {
+            datum3.inc_day(i);
+            //cout << datum3<<endl;
+            datum3.print();
+        }
+
+        cout << endl << endl;
+        
+        Date datum4(2001, Date::Jun, 23);
+            datum4.print();
+            Date datum5(2000, Date::Apr, 6);
+            datum5.print();
+            int a = datum4.compareTo(datum4, datum5);
+            cout << a << endl;
         
         return 0; 
     }

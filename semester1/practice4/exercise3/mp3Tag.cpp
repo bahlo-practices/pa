@@ -4,8 +4,8 @@
  * Created on 24. November 2012, 14:56
  */
 
-#include "mp3Tag.h"
 #include <iostream>
+#include "mp3Tag.h"
 
 using namespace std;
 
@@ -85,16 +85,8 @@ void mp3Tag::setkopierschutz(bool value){
 
 bool mp3Tag::check(){
     if (m<0) return false;
-    if (m<0 || s>59) return false;
+    if(t.length() <= 0) return false;
+    if (i.length() <= 0) return false; 
+    if (s<0 || s>59) return false;
     return true;
 }
-    
-
-
-
-
-
-
-
-
-

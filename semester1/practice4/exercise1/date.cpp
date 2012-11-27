@@ -3,7 +3,6 @@
    yymmdd-OSk
    Demonstriert Grundzüge einer einfache Klasse für Datumsangaben
  * 
- *Author: Tobias
  */
 #include "date.h"
 using std::string;
@@ -235,16 +234,24 @@ Date::Month operator++(Date::Month& m) { // Prefix ++ Operator Overloading (KEIN
     return m;
 }
 
-void Date::inc() {
-
+Date::Month Date::inc(Date::Month& m) { // Prefix ++ Operator Overloading (KEIN Klassenmember)
+    m = (m == Date::Dez) ? Date::Jan : Date::Month(m + 1);
+    
+    return m;
 }
 
 int Date::compareTo(Date& comitted, Date& comitted2) {
+    int returnvalue(0);
+    int jahr(0);
+    int monat(0);
+    int tag(0);
 
-    int returnvalue;
-    int jahr = comitted.y - comitted2.y;
-    int monat = comitted.m - comitted2.m;
-    int tag = comitted.d - comitted2.d;
+    jahr = comitted.y - comitted2.y;
+    //std::cout<<jahr<<"\n";
+    monat = comitted.m - comitted2.m;
+    //std::cout<<monat<<"\n";
+    tag = comitted.d - comitted2.d;
+    //std::cout<<tag<<"\n";
 
     if (jahr == 0 && monat == 0 && tag == 0) {
         returnvalue = 0;
@@ -252,28 +259,24 @@ int Date::compareTo(Date& comitted, Date& comitted2) {
     if (jahr < 0) {
         returnvalue = -1;
     }
-
     if (jahr > 0) {
-        returnvalue = +1;
+        returnvalue = 1;
     }
-
     if (jahr == 0 && monat != 0) {
         if (monat < 0) {
             returnvalue = -1;
         } else {
-            returnvalue = +1;
+            returnvalue = 1;
         }
     }
-
     if (jahr == 0 && monat == 0 && tag != 0) {
         if (tag < 0) {
             returnvalue = -1;
         } else {
-            returnvalue = +1;
+            returnvalue = 1;
         }
     }
 
+
     return returnvalue;
-
 }
-

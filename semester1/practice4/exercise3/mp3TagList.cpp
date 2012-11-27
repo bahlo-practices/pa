@@ -4,9 +4,9 @@
  * Created on 26. November 2012, 14:24
  */
 
+#include <iostream>
 #include "mp3TagList.h"
 #include "mp3Tag.h"
-#include <iostream>
 
 using namespace std;
 
