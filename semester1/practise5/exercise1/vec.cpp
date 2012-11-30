@@ -19,6 +19,7 @@ bool vec::generate(int iCount, string sWhat) {
         for(int i(0); i < iCount; i++) {
             vInt.push_back(rand() % 100);
         }
+        return true;
     }
     if(sWhat == "str") {
         // Generate string vector
@@ -39,4 +40,12 @@ void vec::print(string sWhat) {
         }
         cout << endl;
     }
+}
+
+vector<int> vec::get_int() {
+    return this->vInt;
+}
+
+vector<int> vec::get_str() {
+    return this->vStr;
 }

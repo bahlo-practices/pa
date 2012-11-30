@@ -25,10 +25,17 @@ int main() {
     try {
         // Create objects
         vec vec;
+        sort sort;
         menu menu;
         
         // Show menu
-        menu.show(false);
+        //menu.show(false);
+        
+        // Debug
+        vec.generate(16, "int");
+        vector<int> temp = vec.get_int();
+        sort.ins_int(vec.get_int(), 0, temp.size());
+        vec.print("int");
     } catch (exception &e) {
         cerr << "Ausname: " << e.what();
     } catch (...) {
