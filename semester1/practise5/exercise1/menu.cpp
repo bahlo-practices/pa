@@ -18,6 +18,7 @@ using std::string;
 using std::vector;
 
 menu::menu() {
+    vec vec;
 }
 
 void menu::show(bool error) {
@@ -62,7 +63,7 @@ void menu::run(const int iAction) {
             cin >> iCount;
             
             // Generate Int vector
-            vec::generate(iCount, "int");
+            vec->generate(iCount, "int");
             
             cout << endl;
             this->show(false);
@@ -73,7 +74,7 @@ void menu::run(const int iAction) {
             break;
         }
         case 2: {
-            //vec.print("int");
+            vec->print("int");
             this->show(false);
             break;
         }

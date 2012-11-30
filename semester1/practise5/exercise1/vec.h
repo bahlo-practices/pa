@@ -22,7 +22,6 @@ class vec {
     private:
         vector<int> vInt;
         vector<string> vStr;
-        friend class menu;
 };
 
 #endif	/* VEC_H */
