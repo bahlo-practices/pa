@@ -44,11 +44,7 @@ int show_menu(bool error = false) {
     cout << endl;
     
     iAction--; // yes.
-    if(iAction >= 0 && iAction < vOptions.size()) {
-        return iAction;
-    } else {
-        return -1;
-    }
+    return iAction;
 }
 
 // SORTING
@@ -194,15 +190,17 @@ int main() {
                     return 0;
                 }
                 default:
-                   error("Ein Fehler ist aufgetreten im Men\x81.");
+                    cout << "Bitte geben Sie eine g\x81ltige Option an!" << endl << endl;
+                    break;
             }
         }
         
     } catch (exception &e) {
-        cerr << "Ausname: " << e.what();
+        error("Ausname: ", e.what());
+        return -2;
     } catch (...) {
-        cerr << "Unbekannter Fehler";
+        error("Unbekannter Fehler");
+        return -1;
     }
-    return 0;
 }
 
