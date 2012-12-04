@@ -5,8 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>error.h</itemPath>
-      <itemPath>menu.h</itemPath>
-      <itemPath>sort.h</itemPath>
       <itemPath>vec.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -17,8 +15,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
-      <itemPath>menu.cpp</itemPath>
-      <itemPath>sort.cpp</itemPath>
       <itemPath>vec.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

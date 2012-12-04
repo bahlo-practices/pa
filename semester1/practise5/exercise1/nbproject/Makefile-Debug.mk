@@ -36,9 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/menu.o \
-	${OBJECTDIR}/vec.o \
-	${OBJECTDIR}/sort.o
+	${OBJECTDIR}/vec.o
 
 
 # C Compiler Flags
@@ -70,20 +68,10 @@ ${OBJECTDIR}/main.o: main.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
-${OBJECTDIR}/menu.o: menu.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/menu.o menu.cpp
-
 ${OBJECTDIR}/vec.o: vec.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/vec.o vec.cpp
-
-${OBJECTDIR}/sort.o: sort.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/sort.o sort.cpp
 
 # Subprojects
 .build-subprojects:
