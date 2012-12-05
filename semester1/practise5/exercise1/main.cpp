@@ -86,8 +86,9 @@ vector<int> ins_int(vector<int> vV, int ui, int oi) {
 // MAIN
 int main() {
     try {
-        // Create objects
+        // Create object
         vec vectors;
+        
         while(true) {
             switch(show_menu()) {
                 case 0: {

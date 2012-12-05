@@ -25,7 +25,18 @@ bool vec::generate_int(int iCount) {
 }
 
 bool vec::generate_str(int iCount) {
-    return false;
+    vector<string> tmp;
+    vStr = tmp; // clear vector
+    string sWord = "";
+    string sCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+    
+    for(int i(0); i < iCount; i++) {
+        sWord = "";
+        for(int j(0); j < (rand() % 15) + 1;j++) {
+            sWord = sWord + sCharset[rand() % (sCharset.size() - 1)];
+        }
+        vStr.push_back(sWord);
+    }
 }
 
 void vec::print_int() {
@@ -36,7 +47,7 @@ void vec::print_int() {
     cout << endl;
 }
 void vec::print_str() {
-    for(int i(0); i < vStr.size();i++) {
+    for(int i(0); i <= vStr.size() -1;i++) {
         cout << vStr.at(i) << endl;
     }
     cout << endl;
