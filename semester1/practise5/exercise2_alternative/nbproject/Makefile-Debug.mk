@@ -35,9 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/mp3TagList.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/mp3Tag.o
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -58,26 +56,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/exercise3.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/binarysearch.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/exercise3.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/binarysearch.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/exercise3 ${OBJECTFILES} ${LDLIBSOPTIONS} 
-
-${OBJECTDIR}/mp3TagList.o: mp3TagList.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/mp3TagList.o mp3TagList.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/binarysearch ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/mp3Tag.o: mp3Tag.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/mp3Tag.o mp3Tag.cpp
 
 # Subprojects
 .build-subprojects:
@@ -85,7 +73,7 @@ ${OBJECTDIR}/mp3Tag.o: mp3Tag.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/exercise3.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/binarysearch.exe
 
 # Subprojects
 .clean-subprojects:

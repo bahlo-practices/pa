@@ -18,10 +18,10 @@ using std::sort;
 randomValues::randomValues() : ivalues(), svalues(), builder(" "), target(' '), convert(0) {
 }
 
-void randomValues::fillint(int totalitems) {
+void randomValues::fillint(int totalitems, vector<int> &vV) {
     for (int i = 0; i < totalitems; i++) {
         int num = (rand() % 100) + 1;
-        ivalues.push_back(num);
+        vV.push_back(num);
     }
 };
 
@@ -38,9 +38,9 @@ void randomValues::fillstring(int totalitems) {
     }
 };
 
-void const randomValues::printallint() {
-    for (int i = 0; i < ivalues.size(); i++) {
-        cout << "int Element " << i << ": " << ivalues.at(i) << endl;
+void randomValues::printallint(vector<int> &vV) {
+    for (int i = 0; i < vV.size(); i++) {
+        cout << "int Element " << i << ": " << vV.at(i) << endl;
     }
 };
 
@@ -56,27 +56,20 @@ int randomValues::intSeqSearch(int lookingfor) {
     return -1;
 };
 
-int randomValues::intBinSearch(int lookingfor) {
-
-    sort(ivalues.begin(), ivalues.end());
-
-    int ui(0);
-    int oi = ivalues.size();
+int randomValues::binSearch(vector<int> vV, int x, int ui, int oi) {
     int mid(0);
-
     while (ui <= oi) {
         mid = ui + ((oi - ui) / 2); // somit int Überlauf vermeiden
-        if (lookingfor == ivalues[mid]) return mid;
-        if (lookingfor < ivalues[mid]) oi = mid;
+        if (x == vV[mid]) return mid;
+        if (x < vV[mid]) oi = mid;
+        if (x > vV[mid]) return -1;
         else ui = mid;
     }
     return -1;
 }
 
-int randomValues::stringSeqSearch(string slookingfor) {
-    for (int i = 0; i <= svalues.size(); ++i)
-        if (slookingfor == svalues.at(i)) return i;
+int randomValues::seqSearch(vector<int> vV, int x, int li, int re) {
+    for (int i = li; i <= re; ++i)
+        if (x == vV.at(i)) return i;
     return -1;
 }
-
-

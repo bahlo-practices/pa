@@ -18,14 +18,13 @@ class randomValues {
 public:
 
     randomValues();
-    void fillint(int totalitems);
+    void fillint(int totalitems, vector<int> &vV);
     void fillstring(int totalitems);
-    const void printallint();
+    void printallint(vector<int> &vV);
     void printallstring();
     int intSeqSearch(int lookingfor);
-    int intBinSearch(int lookingfor);
-    int stringSeqSearch(string slookingfor);
-    int stringBinSearch(string slookingfor);
+    int binSearch(vector<int> vV, int x, int ui, int oi);
+    int seqSearch(vector<int> vV, int x, int li, int re);
     
 private:
     vector<string> svalues;
