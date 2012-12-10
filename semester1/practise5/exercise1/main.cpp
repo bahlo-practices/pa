@@ -33,6 +33,7 @@ int show_menu(bool error = false) {
     vOptions.push_back("Einen Vector mit zuf\x84lligen Werten generieren");
     vOptions.push_back("Einen Vector ausgeben");
     vOptions.push_back("Einen Vector sortieren");
+    vOptions.push_back("Einen Vector \x81 \bberpr\x81 \bfen");
     vOptions.push_back("Das Programm beenden");
     
     for(int i(0); i < vOptions.size(); i++) {
@@ -188,6 +189,37 @@ int main() {
                     break;
                 }
                 case 3: {
+                    if(vectors.are_both_empty(true)) break;
+                    
+                    // ÜBERPRÜFEN
+                    int iWhat(0);
+                    
+                    cout << "Welcher Vector soll sortiert werden?" << endl;
+                    cout << "1. Int" << endl;
+                    cout << "2. String" << endl;
+                    cout << "Ihre Auswahl: ";
+                    cin >> iWhat;
+                    cout << endl;
+                    
+                    if(iWhat == 1 && vectors.is_int_empty()) break;
+                    if(iWhat == 2 && vectors.is_str_empty()) break;
+                    
+                    switch(iWhat) {
+                        case 1:
+                            if(vectors.check_int()) {
+                                cout << "Vektor ist korrekt sortiert." << endl;
+                            } else {
+                                cout << "Vektor ist nicht korrekt sortiert." << endl;
+                            }
+                            break;
+                        default:
+                            cout << "Ung\x81ltige Option" << endl;
+                    }
+                    
+                    cout << endl;
+                    break;
+                }
+                case 4: {
                     return 0;
                 }
                 default:

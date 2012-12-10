@@ -86,3 +86,10 @@ bool vec::are_both_empty(bool message) {
     if(result && message) cout << "Sie haben noch keinen Vector generiert." << endl << endl;
     return result;
 }
+
+bool vec::check_int() {
+    for(int i(0); i < vInt.size(); i++) {
+        if(vInt.at(i) > vInt.at(i+1)) return false;
+    }
+    return true;
+}

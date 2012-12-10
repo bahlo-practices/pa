@@ -26,6 +26,7 @@ class vec {
         bool is_int_empty(bool message = false);
         bool is_str_empty(bool message = false);
         bool are_both_empty(bool messagef = false);
+        bool check_int();
     private:
         vector<int> vInt;
         vector<string> vStr;
