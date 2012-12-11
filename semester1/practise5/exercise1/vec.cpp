@@ -103,7 +103,13 @@ bool vec::check_int() {
 
 bool vec::check_str() {
     for(int i(0); i < vStr.size(); i++) {
-        if(vStr.at(i) > vStr.at(i+1)) return false;
+        if(vStr.at(i).length() > vStr.at(i+1).length()) {
+            return false;
+        } else {
+            for(int j(0); j < vStr.at(i).length(); i++) {
+                if(vStr.at(i)[j] > vStr.at(i+1)[j]) return false;
+            }
+        }
     }
     return true;
 }

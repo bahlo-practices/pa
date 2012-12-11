@@ -32,7 +32,7 @@ int show_menu(bool error = false) {
     if (error)
         cout << endl << "Bitte geben Sie eine g\x81ltige Option an!" << endl << endl;
 
-    cout << "Optionen: " << endl;
+    cout << "Sie haben folgende Optionen: " << endl;
 
     vector<string> vOptions;
     vOptions.push_back("Einen Vektor erstellen");
@@ -133,8 +133,10 @@ int main() {
         vec vectors;
         vector<int> temp;
         vector<string> stemp;
+        
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
+        
         while (true) {
             switch (show_menu()) {
                 case 0:
@@ -161,7 +163,7 @@ int main() {
                             vectors.generate_str(iCount);
                             break;
                         default:
-                            error("Ein Fehler ist aufgetreten.");
+                            cout << "Ung\x81 \bltige Option" << endl;
                     }
 
                     cout << endl;
@@ -192,7 +194,7 @@ int main() {
                                 break;
                             } else break;
                         default:
-                            error("Ein Fehler ist aufgetreten.");
+                            cout << "Ung\x81 \bltige Option" << endl;
                     }
 
                     cout << endl;
