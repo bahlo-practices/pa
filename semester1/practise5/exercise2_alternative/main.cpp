@@ -43,7 +43,7 @@ int binSearch(const vector<int> &vV, int x, int ui, int oi) {
 
 int stringBinSearch(const vector<string> &vV, string x, int ui, int oi) {
     int mid(0);
-    while (ui <= oi) {
+    while (ui < oi) {
         mid = ((ui + oi) / 2);
         if (vV[mid] == x)
             return mid;
@@ -56,13 +56,13 @@ int stringBinSearch(const vector<string> &vV, string x, int ui, int oi) {
 }
 
 int seqSearch(const vector<int> &vV, int x, int li, int re) {
-    for (int i = li; i <= re; ++i)
+    for (int i = li; i < re; ++i)
         if (x == vV.at(i)) return i;
     return -1;
 }
 
 int stringSeqSearch(const vector<string> &vV, string x, int li, int re) {
-    for (int i = li; i <= re; ++i)
+    for (int i = li; i < re; ++i)
         if (x == vV.at(i)) return i;
     return -1;
 }
@@ -131,14 +131,15 @@ int main() {
         int result(0);
         int length(0);
         string sSearch(" ");
-        double time1 = 0.0, tstart;
-        tstart = clock();
-
+        double time1 = 0.0, sint;
+        double time2 = 0.0, bint;
+        
         vector<int> iValues;
         vector<string> sValues;
 
         cout << "\nWieviele Elemente sollen im Vector erstellt werden?: ";
         cin >> anzahl;
+        if(!cin){cerr<<"Fehler in der Eingabe.";return -1;}
 
         for (int i = 0; i < anzahl; i++) {
             iValues.push_back(generateRandomInt());
@@ -151,10 +152,12 @@ int main() {
         try {
             cin >> iSearch;
             length = iValues.size();
+            sint = clock();
             result = seqSearch(iValues, iSearch, 0, length);
+            time1 += clock() - sint;
             cout << "\nErgebnis: " << result;
         } catch (exception &e) {
-            cout << "\nWert nicht gefunden.";
+            cout << "\nUngueltiger Wert.";
         }
 
 
@@ -162,7 +165,9 @@ int main() {
         sort(iValues.begin(), iValues.end());
         try {
             cin >> iSearch;
+            bint = clock();
             length = iValues.size();
+            time2 += clock() - bint;
             result = binSearch(iValues, iSearch, 0, length);
             cout << "\nErgebnis: " << result;
         } catch (exception &e) {
@@ -172,6 +177,7 @@ int main() {
 
         cout << "\nWieviele Elemente moechten Sie im string Vector erstellen?";
         cin >> anzahl;
+        if(!cin){ cerr<<"Fehler in der Eingabe"; return -1;}
         generateRandomString(sValues, anzahl);
         for (int i = 0; i < anzahl; i++) {
             cout << setw(10) << sValues.at(i) << " ";
@@ -199,7 +205,7 @@ int main() {
         }
         
 
-        time1 += clock() - tstart;
+        
         time1 = time1 / CLOCKS_PER_SEC;
 
         cout << "\nErgebnis der Laufzeitmessung:  " << time1 << "\n";
