@@ -11,6 +11,9 @@
 #include <vector>
 #include "error.h"
 #include "vec.h"
+#include <time.h>
+#include <cstdlib>
+
 
 using std::cout;
 using std::cin;
