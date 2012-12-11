@@ -1,8 +1,8 @@
-/*
- * 2 
+/* 
+ * File:   main.cpp
+ * Author: Johannes Wahl
  *
  * Created on 8. Dezember 2012, 14:05
- * 
  */
 
 #include <cstdlib>
@@ -11,8 +11,21 @@
 #include <vector>
 #include <stdexcept>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
+
+bool checkIntVec(vector<int> vec) {
+    bool check = true;
+    if (vec.size() > 0) {
+        for (int i = 0; i < vec.size() - 1; i++) {
+            if (vec.at(i) > vec.at(i + 1)) {
+                check = false;
+            }
+        }
+    }
+    return check;
+}
 
 int binSearch(const vector<int> &vV, int x, int ui, int oi) {
     int mid(0);
@@ -30,8 +43,8 @@ int binSearch(const vector<int> &vV, int x, int ui, int oi) {
 
 int stringBinSearch(const vector<string> &vV, string x, int ui, int oi) {
     int mid(0);
-    while (ui < oi) {
-        mid = (ui + oi) / 2;
+    while (ui <= oi) {
+        mid = ((ui + oi) / 2);
         if (vV[mid] == x)
             return mid;
         else if (vV[mid] > x)
@@ -51,6 +64,24 @@ int seqSearch(const vector<int> &vV, int x, int li, int re) {
 int stringSeqSearch(const vector<string> &vV, string x, int li, int re) {
     for (int i = li; i <= re; ++i)
         if (x == vV.at(i)) return i;
+    return -1;
+}
+
+int intSearch(const vector<int> &vV, int x, int ui, int oi) {
+    int mid(0);
+    if (!(checkIntVec(vV))) {
+        cerr<<"Die Werte im Vektor sind nicht sortiert!";
+
+    }
+    while (ui <= oi) {
+        mid = ui + ((x - vV.at(ui)) / vV.at(oi) - vV.at(ui))*(oi - ui);
+        if (x == vV[mid]) {
+            return mid;
+        }
+        if (x < vV[mid]) {
+            oi = mid - 1;
+        } else ui = mid + 1;
+    }
     return -1;
 }
 
@@ -75,32 +106,33 @@ void printVectorString(const vector<string> &vV) {
     }
 }
 
-void generateRandomString(vector<string> &vV) {
+void generateRandomString(vector<string> &vV, int iCount) {
 
-    char target = 'a';
-    string builder;
+    vector<string> tmp;
+    vV = tmp; // clear vector
+    string sWord = "";
+    string sCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
 
-    for (int i = 0; i < 5; i++) {
-        int num = (rand() % 100) + 1;
-        target = num;
-        builder = builder + target;
-        //cout<<"debug builder: "<<builder;
+    for (int i(0); i < iCount; i++) {
+        sWord = "";
+        for (int j(0); j < (rand() % 15) + 1; j++) {
+            sWord = sWord + sCharset[rand() % (sCharset.size() - 1)];
+        }
+        vV.push_back(sWord);
     }
-    vV.push_back(builder);
-    builder.clear();
 }
 
 int main() {
 
     try {
-        srand(time(NULL)); //Generate random number set  
+        srand(time(0)); //Generate random number set
         int anzahl(0);
         int iSearch(0);
         int result(0);
         int length(0);
         string sSearch(" ");
-        double time1=0.0, tstart;
-        tstart = clock();  
+        double time1 = 0.0, tstart;
+        tstart = clock();
 
         vector<int> iValues;
         vector<string> sValues;
@@ -110,6 +142,8 @@ int main() {
 
         for (int i = 0; i < anzahl; i++) {
             iValues.push_back(generateRandomInt());
+            cout << setw(4) << iValues.at(i) << " ";
+            if ((i % 10) == 0) cout << endl;
         }
 
 
@@ -138,8 +172,10 @@ int main() {
 
         cout << "\nWieviele Elemente moechten Sie im string Vector erstellen?";
         cin >> anzahl;
+        generateRandomString(sValues, anzahl);
         for (int i = 0; i < anzahl; i++) {
-            generateRandomString(sValues);
+            cout << setw(10) << sValues.at(i) << " ";
+            if ((i % 10) == 0) cout << endl;
         }
 
         cout << "\nNach welchem string moechten Sie mit der sequenziellen Suche suchen? :";
@@ -161,18 +197,20 @@ int main() {
         } catch (exception &e) {
             cout << "\nWert nicht gefunden";
         }
+        
 
-        time1 += clock() - tstart;  
-        time1 = time1/CLOCKS_PER_SEC;
-        
-        cout<<"\nErgebnis der Laufzeitmessung: "<<time1;
-        
+        time1 += clock() - tstart;
+        time1 = time1 / CLOCKS_PER_SEC;
+
+        cout << "\nErgebnis der Laufzeitmessung:  " << time1 << "\n";
+
         return 0;
-    }    catch (exception &e) {
+    } catch (exception &e) {
         cerr << e.what();
-    }    catch (...) {
+    } catch (...) {
         cerr << "Unbekannter Fehler!";
     }
 }
+
 
 
