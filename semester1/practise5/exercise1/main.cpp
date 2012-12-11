@@ -1,4 +1,5 @@
 /* 
+ * 1
  * 
  * Erstellt, sortiert und gibt Vektoren aus
  * 
@@ -114,7 +115,7 @@ void ins_int(vector<int>& vV, int ui, int oi) {
 
 void ins_str(vector<string>& vV, int ui, int oi) {
     int i(0), j(0);
-    string tmp(0);
+    string tmp = "";
     for (i = oi; i > ui; --i) swap_str(vV.at(i - 1), vV.at(i));
     for (i = ui + 2; i <= oi; ++i) {
         j = i;
@@ -124,12 +125,10 @@ void ins_str(vector<string>& vV, int ui, int oi) {
             --j;
         }
         vV.at(j) = tmp;
-
     }
 }
 
 // MAIN
-
 int main() {
     try {
         // OBJEKTERSTELLUNG
@@ -178,7 +177,7 @@ int main() {
                     // AUSGABE
                     int iWhat(0);
 
-                    cout << "Ausgabe welchen Vektors ?" << endl;
+                    cout << "Ausgabe welchen Vektors?" << endl;
                     cout << "1. Int" << endl;
                     cout << "2. String" << endl;
                     cout << "Ihre Auswahl: ";
@@ -278,6 +277,7 @@ int main() {
                             } else {
                                 cout << "Vektor ist nicht korrekt sortiert." << endl; 
                             }
+                            break;
                         }
                         case 2: {
                             if(vectors.check_str()) {
@@ -285,12 +285,14 @@ int main() {
                             } else {
                                 cout << "Vektor ist nicht korrekt sortiert." << endl; 
                             }
+                            break;
                         }
                         default: {
                             cout << "Ung\x81ltige Option." << endl;
+                            break;
                         }
                     }
-                    cout << endl;
+                    cout << endl << endl;
                     break;
                 }
                 case 4:
@@ -299,12 +301,11 @@ int main() {
                 }
                 default:
                 {
-                    cout << "Bitte geben Sie eine gueltige Option an!" << endl << endl;
+                    cout << "Bitte geben Sie eine g\x81ltige Option an!" << endl << endl;
                     break;
                 }
             }
         }
-
     } catch (exception &e) {
         error("Ausname: ", e.what());
         return -2;

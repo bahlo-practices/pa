@@ -1,8 +1,8 @@
-/* 
- * File:   main.cpp
- * Author: Johannes Wahl
+/*
+ * 2 
  *
  * Created on 8. Dezember 2012, 14:05
+ * 
  */
 
 #include <cstdlib>

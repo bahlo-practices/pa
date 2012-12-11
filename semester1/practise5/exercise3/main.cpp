@@ -21,7 +21,7 @@ using std::string;
 using std::vector;
 using std::exception;
 
-int get_majority(vector<string> vVec) {    
+int get_majority(const vector<string> vVec) {    
         vector<string> stack;
     
         // PHASE 1
@@ -42,7 +42,7 @@ int get_majority(vector<string> vVec) {
             // PHASE 2
             string elem = stack.at(stack.size() - 1);
             int iCount(0);
-            int iPos;
+            int iPos(-1);
             
             for(int i(0);i <= vVec.size() - 1;i++) {
                 if(vVec.at(i) == elem) {
@@ -68,10 +68,16 @@ int main() {
         names.push_back("Arne");
         names.push_back("Johannes");
         names.push_back("Arne");
+        names.push_back("Markus");
         names.push_back("Johannes");
-        names.push_back("Johannes");
+        names.push_back("Markus");
         names.push_back("Johannes");
         names.push_back("Arne");
+        names.push_back("Johannes");
+        names.push_back("Markus");
+        names.push_back("Johannes");
+        names.push_back("Johannes");
+        names.push_back("Johannes");
         
         res = get_majority(names);
         if(res >= 0) {

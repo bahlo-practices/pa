@@ -78,19 +78,19 @@ void vec::set_str(vector<string> vStrNew) {
 
 bool vec::is_int_empty(bool message) {
     bool result = !vInt.size() > 0;
-    if (result && message) cout << "Kein intVektor generiert !" << endl;
+    if (result && message) cout << "Kein int Vektor generiert !" << endl;
     return result;
 }
 
 bool vec::is_str_empty(bool message) {
     bool result = !vStr.size() > 0;
-    if (result && message) cout << "Kein stringVektor generiert !" << endl;
+    if (result && message) cout << "Kein string Vektor generiert !" << endl;
     return result;
 }
 
 bool vec::are_both_empty(bool message) {
     bool result = (!vInt.size() > 0 && !vStr.size() > 0);
-    if (result && message) cout << "Noch kein Vektor generiert !" << endl << endl;
+    if (result && message) cout << "Noch kein Vektor generiert!" << endl << endl;
     return result;
 }
 
@@ -102,14 +102,18 @@ bool vec::check_int() {
 }
 
 bool vec::check_str() {
-    for(int i(0); i < vStr.size(); i++) {
-        if(vStr.at(i).length() > vStr.at(i+1).length()) {
+    for(int i(0); i < vStr.size() - 1; i++) {
+        if(vStr.at(i).compare(vStr.at(i+1)) == 1) return false;
+        
+        //if(vStr.at(i) > vStr.at(i+1)) return false;
+        
+        /*if(vStr.at(i).length() > vStr.at(i+1).length()) {
             return false;
         } else {
             for(int j(0); j < vStr.at(i).length(); i++) {
                 if(vStr.at(i)[j] > vStr.at(i+1)[j]) return false;
             }
-        }
+        }*/
     }
     return true;
 }
