@@ -1,6 +1,5 @@
 /* 
- * File:   main.cpp
- * Author: Johannes Wahl
+ * 2
  *
  * Created on 5. Dezember 2012, 20:08
  */
