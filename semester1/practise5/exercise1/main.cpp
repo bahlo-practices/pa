@@ -10,10 +10,10 @@
 
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 #include "error.h"
 #include "vec.h"
-#include <time.h>
-#include <cstdlib>
 
 
 using std::cout;
@@ -29,11 +29,11 @@ using std::exception;
 using namespace std;
 
 // MENU
-int show_menu(bool error = false) {
+int show_menu(bool bError = false) {
     int i(1);
     int iAction(-1);
 
-    if (error)
+    if (bError)
         cout << endl << "Bitte geben Sie eine g\x81ltige Option an!" << endl << endl;
 
     cout << "Sie haben folgende Optionen: " << endl;
@@ -42,7 +42,7 @@ int show_menu(bool error = false) {
     vOptions.push_back("Einen Vektor erstellen");
     vOptions.push_back("Einen Vektor ausgeben");
     vOptions.push_back("Einen Vektor sortieren");
-    vOptions.push_back("Einen Vektor \x81 \berpr\x81 \bfen");
+    vOptions.push_back("Einen Vektor \x81 \bberpr\x81 \bfen");
     vOptions.push_back("Das Programm beenden");
 
     for (int i(0); i < vOptions.size(); i++) {
@@ -51,6 +51,7 @@ int show_menu(bool error = false) {
 
     cout << endl << "Ihre Auswahl: ";
     cin >> iAction;
+    if(!cin) error("Ung\x81ltige Eingabe.");
     cout << endl;
 
     iAction--; // yes.
@@ -128,17 +129,160 @@ void ins_str(vector<string>& vV, int ui, int oi) {
     }
 }
 
+void ins_int_v1( vector<int>& vV, int ui, int oi ) {
+    if(ui >= oi) {
+        cerr << "Fehler"; 
+        return;
+    }
+    for( int i=ui+1; i<=oi; ++i ) {
+        for( int j=i; j>ui; --j ) {
+            if( vV.at(j-1) < vV.at(j) ) break;
+            swap( vV.at(j-1), vV.at(j) );
+        }
+    }
+}
+
+void ins_str_v1( vector<string>& vV, int ui, int oi ) {
+    if(ui >= oi) {
+        cerr << "Fehler"; 
+        return;
+    }
+    for( int i=ui+1; i<=oi; ++i ) {
+        for( int j=i; j>ui; --j ) {
+            if( vV.at(j-1) < vV.at(j)) break;
+            swap_str( vV.at(j-1), vV.at(j) );
+        }
+    }
+}
+
+
+void rev_ins_int(vector<int>& vV, int ui, int oi) {
+    int i(0), j(0), tmp(0);
+    for (i = oi; i > ui; --i) swap_if(vV.at(i), vV.at(i - 1));
+    for (i = ui + 2; i <= oi; ++i) {
+        j = i;
+        tmp = vV.at(i);
+        while (tmp > vV.at(j - 1)) {
+            vV.at(j) = vV.at(j - 1);
+            --j;
+        }
+        vV.at(j) = tmp;
+
+    }
+}
+
+void rev_ins_str(vector<string>& vV, int ui, int oi) {
+    int i(0), j(0);
+    string tmp = "";
+    for (i = oi; i > ui; --i) swap_str(vV.at(i), vV.at(i - 1));
+    for (i = ui + 2; i <= oi; ++i) {
+        j = i;
+        tmp = vV.at(i);
+        while (tmp > vV.at(j - 1)) {
+            vV.at(j) = vV.at(j - 1);
+            --j;
+        }
+        vV.at(j) = tmp;
+    }
+}
+
+
+bool check_int(const vector<int> vInt) {
+    for(int i(0); i < vInt.size(); i++) {
+        if(vInt.at(i) > vInt.at(i+1)) return false;
+    }
+    return true;
+}
+
+bool check_str(const vector<string> vStr) {
+    for(int i(0); i < vStr.size() - 1; i++) {
+        if(vStr.at(i) > vStr.at(i+1)) return false;
+    }
+    return true;
+}
+
 // MAIN
 int main() {
     try {
         // OBJEKTERSTELLUNG
         vec vectors;
-        vector<int> temp;
-        vector<string> stemp;
+        vector<int> vTmpInt;
+        vector<string> vTmpStr;
         
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
         
+        int iCount(0);
+        
+        cout << "Geben Sie die Anzahl der zu generierenden Elemente ein: ";
+        cin >> iCount;
+        
+        if(!cin) error("Ungültige Option");
+        
+        // GENERATE
+        vectors.generate_int(iCount);
+        vectors.generate_str(iCount);
+        cout << "Vektoren generiert." << endl;
+        
+        // SORTIEREN DURCH AUSWÄHLEN
+        vTmpInt = vectors.get_int();
+        vTmpStr = vectors.get_str();
+        
+        sel_int(vTmpInt, 0, vTmpInt.size() - 1);
+        sel_str(vTmpStr, 0, vTmpStr.size() - 1);
+        cout << "Vektoren sortiert durch Auswaehlen." << endl;
+        if(check_int(vTmpInt)) {
+            cout << "Int-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Nicht korrekt sortiert." << endl;
+        }
+        if(check_str(vTmpStr)) {
+            cout << "Str-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Str-Vektor nicht korrekt sortiert" << endl;
+        }
+        
+        // SORTIEREN DURCH EINFÜGEN 1
+        vTmpInt = vectors.get_int();
+        vTmpStr = vectors.get_str();
+        
+        ins_int_v1(vTmpInt, 0, vTmpInt.size() - 1);
+        ins_str_v1(vTmpStr, 0, vTmpStr.size() - 1);
+        cout << "Vektoren sortiert durch Einfuegen (V1)." << endl;
+        
+        if(check_int(vTmpInt)) {
+            cout << "Int-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Nicht korrekt sortiert." << endl;
+        }
+        if(check_str(vTmpStr)) {
+            cout << "Str-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Str-Vektor nicht korrekt sortiert" << endl;
+        }
+        
+        // SORTIEREN DURCH EINFÜGEN 
+        vTmpInt = vectors.get_int();
+        vTmpStr = vectors.get_str();
+        
+        ins_int(vTmpInt, 0, vTmpInt.size() - 1);
+        ins_str(vTmpStr, 0, vTmpStr.size() - 1);
+        cout << "Vektoren sortiert durch Einfuegen." << endl;
+        
+        if(check_int(vTmpInt)) {
+            cout << "Int-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Nicht korrekt sortiert." << endl;
+        }
+        if(check_str(vTmpStr)) {
+            cout << "Str-Vektor korrekt sortiert." << endl;
+        } else {
+            cout << "Str-Vektor nicht korrekt sortiert" << endl;
+        }
+        
+        
+        
+        /*
         while (true) {
             switch (show_menu()) {
                 case 0:
@@ -223,6 +367,7 @@ int main() {
                     cout << "Welche Sortiermethode ?" << endl;
                     cout << "1. Sortieren durch Auswaehlen" << endl;
                     cout << "2. Sortieren durch Einfuegen" << endl;
+                    cout << "3. Sortieren durch Einfuegen (v1)" << endl;
                     cout << "Ihre Auswahl: ";
                     cin >> iSort;
                     cout << endl;
@@ -232,15 +377,21 @@ int main() {
 
                     //if(iSort < 1 || iSort > 2) error("Ung\x81ltige Option.");
                     if (iWhat == 1) {
+                        // INT
                         temp = vectors.get_int();
-                        if (iSort == 1) sel_int(temp, 0, vectors.get_int().size() - 1);
-                        if (iSort == 2) ins_int(temp, 0, vectors.get_int().size() - 1);
+                        if (iSort == 1) sel_int(temp, 0, temp.size() - 1);
+                        if (iSort == 2) ins_int(temp, 0, temp.size() - 1);
+                        if (iSort == 3) ins_int_v1(temp, 0, temp.size() - 1);
+                        if (iSort == 4) rev_ins_int(temp, 0, temp.size() - 1);
                         vectors.set_int(temp);
                     }
                     if (iWhat == 2) {
+                        // STRING
                         stemp = vectors.get_str();
                         if (iSort == 1) sel_str(stemp, 0, stemp.size() - 1);
                         if (iSort == 2) ins_str(stemp, 0, stemp.size() - 1);
+                        if (iSort == 3) ins_str_v1(stemp, 0, stemp.size() - 1);
+                        if (iSort == 4) rev_ins_str(stemp, 0, stemp.size() - 1);
                         vectors.set_str(stemp);
                     }
 
@@ -305,9 +456,9 @@ int main() {
                     break;
                 }
             }
-        }
+        }*/
     } catch (exception &e) {
-        error("Ausname: ", e.what());
+        //error("Ausname: ", e.what());
         return -2;
     } catch (...) {
         error("Unbekannter Fehler");

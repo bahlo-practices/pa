@@ -4,10 +4,10 @@
 
 
 
-#include "vec.h"
 #include "cstdlib"
 #include <iostream>
 #include <iomanip>
+#include "vec.h"
 
 using std::cout;
 using std::endl;
@@ -17,7 +17,7 @@ using std::rand;
 
 using namespace std;
 
-vec::vec() {
+vec::vec() : vInt(), vStr() {
 }
 
 bool vec::generate_int(int iCount) {
@@ -47,8 +47,8 @@ bool vec::generate_str(int iCount) {
 
 void vec::print_int() {
     for (int i(0); i < vInt.size(); i++) {
-        cout << left << setw(3) << vInt.at(i);
-        if ((i + 1) % 20 == 0 && i > 0) cout << endl;
+        cout << left << setw(4) << vInt.at(i);
+        if ((i + 1) % 16 == 0 && i > 0) cout << endl;
     }
     cout << endl;
 }
