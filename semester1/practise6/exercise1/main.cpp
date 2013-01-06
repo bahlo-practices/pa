@@ -10,9 +10,6 @@
 
 using namespace std;
 
-/*
- * 
- */
 void print_array10( ostream& os, int* a ){
     for (int i=0; i<10;i++){
         os<<a[i]<<endl;
@@ -33,8 +30,8 @@ int main(int argc, char** argv) {
     int* ipdr (new int [10]);
     for (int i=0; i<10; i++){
         ipdr[i]=i;//Benennung des Speichers
-        cout<<setw(4)<<ipdr[i];//Ausgabe des Speichers
-        if (i==9)cout<<endl;
+        cout << setw(4) << ipdr[i];//Ausgabe des Speichers
+        if(i==9) cout << endl;
     }
     delete[] ipdr;
     for (int i=0; i<10; i++){//Überprüfung

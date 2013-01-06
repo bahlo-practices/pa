@@ -9,10 +9,6 @@
 
 using namespace std;
 
-/*
- * Praktikum 6_ Aufgabe 3
- * Heap und Stack speicher!
- */
 int main(int argc, char** argv) {
     //Heap mit new
     //Sonst Stack

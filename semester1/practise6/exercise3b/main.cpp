@@ -8,9 +8,9 @@
 
 using namespace std;
 
-/*Bitte nicht ausführen, da sonst der Computer abstürzt! 
+/* 
+ * Bitte nicht ausführen, da sonst der Computer abstürzt! 
  * Danke!
- * 
  */
 int main(int argc, char** argv) {
     while (true){

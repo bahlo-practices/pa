@@ -1,7 +1,4 @@
 /* 
- * File:   DoLL.cpp
- * Author: Tobias Hereth
- * 
  * Created on 14. Dezember 2012, 14:44
  */
 

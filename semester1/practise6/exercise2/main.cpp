@@ -9,19 +9,16 @@
 
 using namespace std;
 
-/*
- * 
- */
 void tolower (char* cs){
     int counter (0);
     char itemp (0);
     char ctemp(' ');
     
     while (cs[counter] != '\0'){
-        itemp= cs[counter];
+        itemp = cs[counter];
         if (itemp>64 && itemp<91){
             ctemp=itemp+32;
-        }else{
+        } else {
             ctemp=itemp;
         }
         counter++;
