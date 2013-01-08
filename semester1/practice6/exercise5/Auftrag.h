@@ -15,7 +15,6 @@ public:
     ~Auftrag() { delAufAusKunde(); }            // Dekonstruktor
     
     // Assoziations-Operationen & Setter
-    void connectWidthKunde(Kunde* k);
     void setKunde (Kunde* k);
     
     // Getter

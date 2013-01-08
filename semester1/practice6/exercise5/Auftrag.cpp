@@ -3,12 +3,7 @@
 
 using namespace std;
 
-// Assoziations-Operationen & Setter
-void Auftrag::connectWidthKunde(Kunde* k) { // Setzt den Zeiger auf den Kunden 
-    pk = k;                                 // und fügt dieses Objekt als Auftrag dem Kunden hinzu
-    k->addAuftrag(this);
-}
-
+// Setter
 void Auftrag::setKunde(Kunde* k) {
     pk = k;
 }

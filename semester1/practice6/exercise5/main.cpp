@@ -21,20 +21,20 @@ try {
     // Erste Assoziationsrichtung:
     // aus einem Objekt vom Typ Kunde
     // zu Objekten vom Typ Auftrag
-    k1.connectWidthAuftrag( a1 );
-    k1.connectWidthAuftrag( a2 );
+    k1.connectWithAuftrag( a1 );
+    k1.connectWithAuftrag( a2 );
     k1.print( );
     a1->print( );
     a2->print( );
     // Zweite Assoziationsrichtung:
     // aus einem Objekt vom Typ Auftrag
     // zu einem Objekt vom Typ Kunde
-    a3->connectWidthKunde( &k2 );
+    k2.connectWithAuftrag(a3);
     k2.print( );
     a3->print( );
     delete a1; delete a2; delete a3;
     
-    //*
+    /*
     // TESTFÄLLE
     Kunde kunde1("Hans-Meier");
     Kunde kunde2("Siegfried Mueller");

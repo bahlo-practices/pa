@@ -9,7 +9,7 @@
 using namespace std;
 
 // Assoziations-Operationen & Setter
-void Kunde::connectWidthAuftrag(Auftrag* auftrag) {
+void Kunde::connectWithAuftrag(Auftrag* auftrag) {
     vpa.push_back(auftrag);
     auftrag->setKunde(this);
 }

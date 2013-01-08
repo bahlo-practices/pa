@@ -15,7 +15,7 @@ public:
     ~Kunde() { };
     
     // Assoziations-Operationen & Setter
-    void connectWidthAuftrag(Auftrag* auftrag);
+    void connectWithAuftrag(Auftrag* auftrag);
     void addAuftrag(Auftrag* auftrag);
 
     // Getter
