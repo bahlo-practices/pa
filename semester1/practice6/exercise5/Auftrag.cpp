@@ -5,7 +5,9 @@ using namespace std;
 
 // Setter
 void Auftrag::setKunde(Kunde* k) {
+    if(pk == k) return;
     pk = k;
+    k->addAuftrag(this);
 }
 
 // Getter
@@ -13,7 +15,7 @@ Kunde* Auftrag::getKunde() const { // Gibt Zeiger auf Kunden zurück
     return pk;
 }
 
-void Auftrag::print() const { // Gibt den Auftrag und dazugejörige Kunden aus.
+void Auftrag::print() const { // Gibt den Auftrag und dazugehörige Kunden aus.
     cout << "Auftrag: " << name << endl;
     cout << "Kunde: " << getKunde()->getName() << endl << endl;
 }
@@ -21,11 +23,3 @@ void Auftrag::print() const { // Gibt den Auftrag und dazugejörige Kunden aus.
 string Auftrag::getName() const  { 
     return name; 
 } 
-
-// Anderes
-void Auftrag::delAufAusKunde() {
-    if (pk != 0) {
-        pk->cancelAuftrag(this);
-        pk = 0;
-    }
-}

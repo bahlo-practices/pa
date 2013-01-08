@@ -9,13 +9,10 @@
 using namespace std;
 
 // Assoziations-Operationen & Setter
-void Kunde::connectWithAuftrag(Auftrag* auftrag) {
+void Kunde::addAuftrag(Auftrag* auftrag) {
+    if(auftrag->getKunde() == this) return;
     vpa.push_back(auftrag);
     auftrag->setKunde(this);
-}
-
-void Kunde::addAuftrag(Auftrag* auftrag) {
-    vpa.push_back(auftrag);
 }
 
 // Getter

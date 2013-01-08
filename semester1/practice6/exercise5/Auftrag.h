@@ -12,7 +12,7 @@ class Kunde;
 class Auftrag {
 public:
     Auftrag( string s ) : name(s), pk(0){};       // Kontruktor, Kundenzeiger zeigt auf NULL
-    ~Auftrag() { delAufAusKunde(); }            // Dekonstruktor
+    ~Auftrag() { }            // Dekonstruktor
     
     // Assoziations-Operationen & Setter
     void setKunde (Kunde* k);
@@ -21,9 +21,6 @@ public:
     Kunde* getKunde() const;      
     void print() const;
     string getName() const;
-    
-    // Anderes
-    void delAufAusKunde();
 private:
     string name;
     Kunde* pk;
