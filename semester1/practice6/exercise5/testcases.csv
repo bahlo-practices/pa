@@ -1,5 +1,0 @@
-Nummer;Testfall;Notizen
-1;Kunde kunde1("-12-Hans-Meier");Läuft einwandfrei, ist ja String
-2;Auftrag* auftrag1 = new Auftrag(-12);Kein String übergeben, Fehler
-3;kunde1.connectWidthAuftrag(auftrag1), danach auftrag1->connectWidthKunde(&kunde1);Kein Fehler, ein Auftrag mehr.
-4;Nach Fall 3 kunde1.cancelAuftrag(auftrag1);Löuft, beide auftrag1 weg.

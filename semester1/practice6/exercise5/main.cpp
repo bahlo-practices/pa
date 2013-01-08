@@ -12,7 +12,6 @@ using namespace std;
 
 int main( ) {
 try {
-    /**/
     // Anlegen: zwei Kunden und drei Aufträge
     Kunde k1( "Sepplhuber-Finsterwalder" );
     Kunde k2( "Kurz" );
@@ -34,16 +33,35 @@ try {
     k2.print( );
     a3->print( );
     delete a1; delete a2; delete a3;
-    /* *//*
+    
+    //*
     // TESTFÄLLE
     Kunde kunde1("Hans-Meier");
+    Kunde kunde2("Siegfried Mueller");
     Auftrag* auftrag1 = new Auftrag("Fenster putzen");
-    Auftrag* auftrag2 = new Auftrag("Fenster putzen");
+    Auftrag* auftrag2 = new Auftrag("Fenster ausbauen");
+    // 1: Zwei mal der selbe Auftrag
+    Auftrag* auftrag3 = new Auftrag("Fenster putzen");
+    // 2: Doppelte asoziierung
     kunde1.connectWidthAuftrag(auftrag1);
-    kunde1.connectWidthAuftrag(auftrag2);
     auftrag1->connectWidthKunde(&kunde1);
     kunde1.cancelAuftrag(auftrag1);
-    kunde1.print();*/
+    kunde1.print();
+    // 3: Auftrag mit nicht vorhandenem Kunden verbinden
+    auftrag2->connectWidthKunde(&keinkunde);
+    // 4: Auftrag mit vorhandenem aber nicht ver&-deten Kunden asoziieren
+    auftrag1->connectWidthKunde(kunde1);
+    // 5:Einen Auftrag mit mehreren Kunden asoziieren
+    auftrag1->connectWidthKunde(&kunde2);
+    // 6: Einen Kunden mit einem Kunden asoziieren
+    kunde1.connectWidthAuftrag(kunde2);
+    // 7: Einen Auftrag mit einem Auftrag asoziieren
+    auftrag1->connectWidthKunde(&auftrag2);
+    // 8: Einen Auftrag mit einem Kunden vertauschen
+    auftrag1.connectWidthAuftrag(&kunde2);
+    // 9: 
+    // 10:
+    //*/
 } catch(exception &e) {
     cerr << e.what();
 } catch(...) {
