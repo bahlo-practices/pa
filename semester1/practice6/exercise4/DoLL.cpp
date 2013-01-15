@@ -15,7 +15,8 @@ DoLL::DoLL(string s, DoLL* p, DoLL* l)
 }
 
 void DoLL::print_item(DoLL* l){
-    cout << l->item << endl;
+    if(l == 0) cerr << "ungültiger wert";
+    else cout << l << ": "<< l->item <<" "<< l->next <<" "<< l->last<<endl;
 }
 
 DoLL* DoLL::ablegen(string s) {//push_back
@@ -29,16 +30,15 @@ DoLL* DoLL::ablegen(string s) {//push_back
 }
 
 DoLL* DoLL::pop_front() {
-    DoLL erstes_Element (*this);
+    DoLL* erstes_Element;   
+    for (erstes_Element = this; erstes_Element->last != 0; erstes_Element = erstes_Element->last) {
     
-    
-    for (erstes_Element = *this; erstes_Element->last != 0; erstes_Element = erstes_Element->last) {
     }
     erstes_Element->next->last = 0;
     DoLL* nachstes (this->next->next);
     DoLL* previous (NULL);
     
-    DoLL* neues_erstes_Element ((this->next->item), nachstes, previous);
+    DoLL* neues_erstes_Element = new DoLL((this->next->item), nachstes, previous);
     delete erstes_Element;
     return neues_erstes_Element;
 }
@@ -62,32 +62,24 @@ DoLL* DoLL::letztes_Elem(){
     return letztes_Element;
 }
 
-DoLL* DoLL::links(){
-    int counter (0);
-    DoLL* linkes_Element;
-    for (linkes_Element=this; counter<1; counter++){
-        linkes_Element = linkes_Element->last;
-    }
-    return linkes_Element;
-}
-
-DoLL* DoLL::rechts(){
-    int counter (0);
-    DoLL* rechtes_Element;
-    for (rechtes_Element=this; counter<2; counter++){
-        rechtes_Element = rechtes_Element->last;
-    }
-    return rechtes_Element;
-}
-
 DoLL* DoLL::push_front(string s) {//vorne einfügen
+    
+    cout<<"Methoden Anfang"<<endl;
+    printall(this);
     DoLL* erstes_Element;
-    for (erstes_Element = this; erstes_Element->last != 0; erstes_Element = erstes_Element->last) {
-        DoLL::print_item(erstes_Element);
+    for (erstes_Element = this; erstes_Element->last != NULL; erstes_Element = erstes_Element->last) {
+        //DoLL::print_item(erstes_Element);
     }
-    DoLL* DoLL2 = new DoLL(s, erstes_Element, NULL);
-    erstes_Element->last = DoLL2;
-    return DoLL2;
+    
+    if(erstes_Element->last == NULL){
+        
+        DoLL* DoLL2 = new DoLL(s, erstes_Element, NULL);
+        erstes_Element->last = DoLL2;
+        printall(this);
+         cout<<"Methoden Ende"<<endl;
+        return DoLL2;
+    }
+    
 }
 
 DoLL* DoLL::push_back_node(string s) {
@@ -113,111 +105,47 @@ DoLL* DoLL::get_last() {
     return last;
 }
 
-//DoLL* DoLL::navi() {
-//    char menu (' ');
-//    cout<<"Wollen Sie sich in der Liste nach links (l) oder rechts (r) bewegen? > ";
-//    cin>>menu;
-//    switch (menu) {
-//        case 'l':
-//            if (this->last == 0) {
-//                return this;
-//            } else {
-//                this = this->last;
-//            }
-//            break;
-//        case 'r':
-//            if (this->next==0){
-//                return this;
-//            }else{
-//            this = this->next;
-//            }
-//            break;
-//        default:
-//            return this;
-//            break;
-//    }
-//}
-
-void DoLL::functions() {
-    char auswahl_Funktion (' ');
-    char auswahl_unterfunktion (' ');
-    string neues_Element (" ");
-    cout<<"Wleche Funktion wollen Sie ausführen?\n"
-            "1 > Ein Element hinzufügen\n"
-            "2 > Ein Element löschen\n"
-            "3 > Alle Elemente ausgeben\n";
-    
-    switch (auswahl_Funktion) {
-            case '1' :
-                cout<<"\nBitte geben SIe Ihr Element ein >";
-                cin>>neues_Element;
-                cout<<"\nWo wollen Sie Ihr Element einfügen?\n"
-                        "\n1 > Element ganz hinten an die Liste hinzufügen"
-                        "\n2 > Element ganz vorne an der Liste hinzufügen"
-                        "\n3 > Element hinter Ihrem derzeitigen Element einfügen"
-                        "\n4 > Element vor Ihrem derzeitigen Element einfügen\n";
-                cin>>auswahl_unterfunktion;
-                switch (auswahl_unterfunktion){
-                    case '1':
-                        this->ablegen(neues_Element);
-                        break;
-                    case '2':
-                        this->push_front(neues_Element);
-                        break;
-                    case '3':
-                        this->push_prev_node(neues_Element);
-                        break;
-                    case '4':
-                        this->push_back_node(neues_Element);
-                        break;
-                    default:
-                        break;
-                }
-            break;
-        case '2':
-            cout<<"\nWo wollen Sie Ihr Element löschen?\n"
-                        "\n1 > Element ganz hinten aus der Liste entfernen"
-                        "\n2 > Element ganz vorne aus der Liste entfernen"
-                        "\n3 > Element hinter Ihrem derzeitigen Element entfernen"
-                        "\n4 > Element vor Ihrem derzeitigen Element entfernen\n";
-            cin>>auswahl_unterfunktion;
-            switch (auswahl_unterfunktion){
-                case '1':
-                    this->entnehmen();
-                    break;
-                case '2':
-                    this->pop_front();
-                    break;
-                case '3':
-                    this->pop_back_node();
-                    break;
-                case '4':
-                    this->pop_prev_node();
-                    break;
-            }
-            break;
-        case '3':
-            DoLL::printall(this);
-            break;
-    }
-}
-
 void DoLL::printall(DoLL* l) {
     if (l == 0) {
         return;
     }
-    cout << l->item << endl;
-    printall(l->next);
+    
+    DoLL* letztes_Element;
+    
+    for (letztes_Element = l; letztes_Element->next != 0; letztes_Element = letztes_Element->next) {
+  
+    }  
+  
+    for(DoLL* aktuell = letztes_Element; aktuell != NULL; aktuell=aktuell->last){
+        print_item(aktuell);
+    }
 }
 
 DoLL* DoLL::entnehmen() {//pop_back
+  
     DoLL* letztes_Element;
     for (letztes_Element = this; letztes_Element->next != 0; letztes_Element = letztes_Element->next) {
     }
-    letztes_Element->last->next = 0;
-    DoLL* neues_letztes_Element = letztes_Element->last;
-    delete letztes_Element;
-    return neues_letztes_Element;
+    if(letztes_Element->last == NULL){
+        cerr<<"Letzter Wert in der Liste. Fehler.";
+    } else {
+      
+            DoLL* temp = letztes_Element->last;
+            if(letztes_Element->last->last != NULL) letztes_Element->last->last->next = letztes_Element;
+            letztes_Element->next = 0;
+            if(letztes_Element->last != NULL) {
+                letztes_Element->item = letztes_Element->last->item;
+                letztes_Element->last = letztes_Element->last->last;
+            }
+            
+            //delete temp;
+                    
+            //DoLL* neues_letztes_Element = letztes_Element->last;
+            //cerr << letztes_Element << endl;
+        //return neues_letztes_Element;
+        
+
+    }
 }
 
 DoLL* DoLL::pop_back_node() {

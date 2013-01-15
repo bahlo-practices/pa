@@ -7,66 +7,65 @@
 #include <cstdlib>
 #include <iostream>
 #include "DoLL.h"
+#include <stdexcept>
 
 using namespace std;
 
-
+void menuetext() {
+    cout << "Bitte waehlen Sie eine Option:" << endl;
+    cout << "(1) Alles ausgeben" << endl;
+    cout << "(2) vorne auf Stapel ablegen" << endl;
+    cout << "(3) hinten auf Stapel ablegen" << endl;
+    cout << "(4) Element vorne vom Stapel nehmen" << endl;
+    cout << "(5) Element hinten vom Stapel nehmen" << endl;
+    cout << "Druecken Sie q zum beenden oder ? fuer Hilfe." << endl;
+}
 
 int main() {
-    char menu (' ');
-    string anfang (" ");
-    cout<<"Bitte geben Sie einen Anfangswert(Zeichenkette) für Ihre doppelt-"
-            "verlinkte-Liste ein > ";
-    //cin>>anfang;
-    anfang = "Eins";
-    DoLL liste (anfang, NULL, NULL);
-    DoLL::printall(&liste);
-    cout<<endl;
-    liste.ablegen("Zwei");
-    liste.ablegen ("Drei");
-    liste.ablegen ("Vier");
-    liste.ablegen ("Fünf");
-    liste.ablegen ("Sechs");
-    liste.ablegen ("Sieben");
-    liste.ablegen ("Acht");
-    DoLL::printall(&liste);
-    cout<<endl;
-    DoLL::print_item(&liste);
-    cout<<endl;
-    liste.letztes_Elem();
-    DoLL::print_item(&liste);
-    cout<<endl;
-    
-    
-//    cout<<"Bitte wählen Sie ein Menü:\n";
-//    cout<<"Für das Navigationsmenü 1 drücken, für das Funktionsmenü die 2.\n"
-//            "Bestätigen mit Enter";
-//    cin>>menu;
-//    switch (menu) {
-//            case '1' :
-//                liste.navi();
-//            break;
-//        case '2': 
-//            liste.functions();
-//            break;
-//
-//    }
+
+    try {
+        //initialise first object
+        bool loop = true;
+        string initialise = "0";
+        cout << "Bitte erstellen Sie ein initialies Objekt fuer die DoLL:" << endl;
+        cin >> initialise;
+        DoLL liste(initialise, NULL, NULL);
+
+
+        char cMenue = 'c';
+        menuetext();
+        while (loop != false) {
+
+            cin >> cMenue;
+
+            switch (cMenue) {
+                case '1': DoLL::printall(&liste);
+                    break;
+                case '2': cin >> initialise;
+                    liste.push_front(initialise);
+                    break;
+                case '3': cin >> initialise;
+                    liste.ablegen(initialise);
+                    break;
+                case '4': liste.pop_front();
+                    break;
+                case '5': liste.entnehmen();
+                    break;
+                case 'q': loop = false;
+                    break;
+                case '?': menuetext();
+                    break;
+                default: cout << "Keine gueltige Eingabe";
+                    break;
+            }
+        }
+    } catch (exception& e) {
+        cerr << e.what();
+        return -2;
+    }    catch (...) {
+        cerr << "Unbekannter Fehler";
+        return -1;
+    }
     return 0;
 }
 
-//    DoLL hi;
-//    DoLL liste1("Test0", NULL, NULL);
-//    liste1.ablegen("Test1");
-//    liste1.ablegen("Test2");
-//    liste1.ablegen("Test3");
-//    liste1.ablegen("Test4");
-//    liste1.ablegen("Test5");
-//    liste1.ablegen("Test6");
-//    liste1.ablegen("Test7");
-//    liste1.ablegen("Test8");
-//    DoLL::printall(&liste1);
-//    liste1.entnehmen();
-//    liste1.entnehmen();
-//    liste1.entnehmen();
-//    DoLL::printall(&liste1);
-//    
