@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 #include <stdlib.h>
-#include <time.h>
 
 #include "NPV.h"
 
@@ -18,7 +17,6 @@ NPV::NPV(vector<long int> inv, double irate) : inv(inv), irate(irate), capital(0
 
 // Randomize
 void NPV::randomize() {
-    srand(time(NULL)); // Init random seed
     // Generate random inv
     for(int i = 0; i < 20; i++) {
         long int number = rand() % 100000;
@@ -68,6 +66,6 @@ void const NPV::print() {
     }
     cout << "Zinssatz: " << this->irate * 100 << " %" << endl;
     cout << "Kapital: " << this->capital << endl;
-    cout << "----";
+    cout << "----" << endl;
 }
 
