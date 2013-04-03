@@ -6,6 +6,7 @@
 #define	WS12_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -17,9 +18,18 @@ public:
     string get_name() const;
     int get_loc() const;
     void print() const;
+    // Aufgabe 2
+    bool connects(Liwanze*) const;
+    bool connected(Liwanze*) const;
+    void print_tierone() const;
+    void add_connTo(Liwanze*);
+    void add_connFrom(Liwanze*);
 private:
     string name;
     Region loc;
+    // Aufgabe 2
+    vector<string> connectsTo;
+    vector<string> connectedFrom;
 };
 
 #endif	/* WS12_H */

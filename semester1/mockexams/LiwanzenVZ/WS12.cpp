@@ -8,9 +8,9 @@
 using namespace std;
 
 // Setter
-Liwanze::Liwanze() : name(" "), loc(Liwanze::ndef) {
+Liwanze::Liwanze() : name(" "), loc(Liwanze::ndef), connectsTo(), connectedFrom() {
 }
-Liwanze::Liwanze(string _name, Region _loc) : name(_name), loc(_loc) {
+Liwanze::Liwanze(string _name, Region _loc) : name(_name), loc(_loc), connectsTo(), connectedFrom() {
 }
 
 // Getter
@@ -37,4 +37,22 @@ void Liwanze::print() const {
             break;
     }
     cout << endl;
+}
+
+// Aufgabe 2
+bool Liwanze::connects(Liwanze* srcLiwanze) const {
+    return (srcLiwanze->get_name() == connectsTo.at(0));
+}
+bool Liwanze::connected(Liwanze* srcLiwanze) const {
+    return (srcLiwanze->get_name() == connectedFrom.at(0));
+}
+void Liwanze::print_tierone() const {
+    cout << connectsTo.at(0) << endl;
+    return;
+}
+void Liwanze::add_connTo(Liwanze* toLiwanze) {
+    connectsTo.push_back(toLiwanze->get_name());
+}
+void Liwanze::add_connFrom(Liwanze* fromLiwanze) {
+    connectedFrom.push_back(fromLiwanze->get_name());
 }
