@@ -14,7 +14,7 @@ using namespace std;
 class NPV {
 public:
     NPV();
-    NPV(vector<long int> inv, double irate);
+    NPV(vector<long int> _inv, double _irate);
 
     class Invalid {}; // Invalid class for exceptions
 
@@ -26,8 +26,8 @@ public:
     double const get_irate();
 
     // Setter
-    void set_inv(vector<long int> inv);
-    void set_irate(double irate);
+    void set_inv(vector<long int> _inv);
+    void set_irate(double _irate);
 
     // Print
     void const print();

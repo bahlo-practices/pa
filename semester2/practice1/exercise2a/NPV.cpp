@@ -15,8 +15,7 @@ NPV::NPV() : capital(0.0) {
     // Randomize data
     // Generate random inv
     for(int i = 0; i < 20; i++) {
-        long int number = rand() % 100000;
-        if(rand() % 2 == 1) number = number * -1;
+        long int number = rand() % 200000 - 100000;
         inv.push_back(number);
     }
     // Generate random rate between 0 % and 10.0 %
@@ -25,9 +24,8 @@ NPV::NPV() : capital(0.0) {
     irate = rate;
 }
 
-NPV::NPV(vector<long int> inv, double irate) : inv(inv), irate(irate), capital(0.0) {
-    if(irate < 0) throw Invalid();
-    if(irate > 1) throw Invalid();
+NPV::NPV(vector<long int> _inv, double _irate) : inv(_inv), irate(_irate), capital(0.0) {
+    if(_irate < 0 || _irate > 1) throw Invalid();
 }
 
 // Calculation
@@ -48,11 +46,11 @@ double const NPV::get_irate() {
 }
 
 // Setter
-void NPV::set_inv(vector<long int> inv) {
-    inv = inv;
+void NPV::set_inv(vector<long int> _inv) {
+    inv = _inv;
 }
-void NPV::set_irate(double irate) {
-    irate = irate;
+void NPV::set_irate(double _irate) {
+    if(_irate >= 0 && _irate <= 1) irate = _irate;
 }
 
 // Print
