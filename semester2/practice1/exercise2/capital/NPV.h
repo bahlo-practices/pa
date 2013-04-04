@@ -16,6 +16,9 @@ class NPV {
 public:
     NPV();
     NPV(vector<long int> inv, double irate);
+    NPV(vector<long int> inv, double irate, bool generateAndPrint);
+    
+    class Invalid {}; // Invalid class for exceptions
     
     // Randomize
     void randomize();
@@ -36,7 +39,7 @@ public:
 private:
     vector<long int> inv;
     double irate;
-    double capital;
+    long double capital;
 };
 
 #endif	/* NPV_H */
