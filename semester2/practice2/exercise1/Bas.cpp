@@ -14,7 +14,7 @@ void Bas::add_children(Bas* pointer) {
     deduced.push_back(pointer);
 }
 
-void Bas::print_pointers() const {
+void Bas::print_children() const {
     for(int i = 0; i < deduced.size(); ++i) {
         std::cout << deduced.at(i) << std::endl;
     }

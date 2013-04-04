@@ -24,7 +24,7 @@ int main() {
     base.add_children(rooPointer);
     
     // Print pointers for debugging
-    base.print_pointers();
+    base.print_children();
     
     return 0;
 }

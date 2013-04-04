@@ -16,7 +16,7 @@ class Bas {
 public:
     Bas();
     void add_children(Bas* pointer);
-    void print_pointers() const;
+    void print_children() const;
 private:
     std::vector<Bas*> deduced;
 };
