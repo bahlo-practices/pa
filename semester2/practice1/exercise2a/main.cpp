@@ -133,22 +133,9 @@ void generateRandom() {
 
 int main() {
     try {
-//        generateRandom();
-//        testcases();
+        //testcases();
         
-        // Custom test cases
-        /*
-        vector<long int> testerInv;
-        
-        double testerRate(0.1337);
-        testerInv.push_back(1337);
-        
-        NPV tester(testerInv, testerRate);
-        tester.calculate();
-        tester.print();
-        */
-        
-        // Menu
+        //* Menu
         while(true) {
             int choice(0);
             cout << "Sie haben folgende Optionen:" << endl;
@@ -216,6 +203,7 @@ int main() {
                 throw runtime_error("\nFehlerhafte Eingabe! Das Programm wurde beendet.");
             }
         }
+        // */
         
         return 0;  
     } catch (NPV::Invalid) {
