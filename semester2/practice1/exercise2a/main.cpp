@@ -47,7 +47,7 @@ void testcases() {
 //    tests.push_back(NPV(inv3, irate3));
     
     // Testcase 4
-    // Funktioniert einwandfrei, Kapital: 0
+    // Funktioniert, aber der Float wert wird nicht erkannt, Kapital: 0
     vector<long int> inv4;
     double irate4(0.01);
     
@@ -136,7 +136,8 @@ int main() {
         //testcases();
         
         //* Menu
-        while(true) {
+        bool menu(true); // Define variable to prevent showing the menu even from the deepest loops (where break wouldn't work)
+        while(menu) {
             int choice(0);
             cout << "Sie haben folgende Optionen:" << endl;
             cout << "(1) Zufällig generieren" << endl;
@@ -156,7 +157,8 @@ int main() {
                         vector<long int> inv;
                         double irate(0.0);
                         
-                        while(true) {
+                        bool prompt = true;
+                        while(prompt) {
                             // Get rate
                             cout << "Geben Sie den Zinssatz als dezimalzahl ein (0.5 = 50%): ";
                             cin >> irate;
@@ -172,7 +174,7 @@ int main() {
                                 long int singleInv(0);
                                 cin >> singleInv;
                                 if(!cin) {
-                                    cin.clear();
+                                    prompt = false;
                                     break;
                                 }
                                 inv.push_back(singleInv);
@@ -185,13 +187,11 @@ int main() {
                             // Print object
                             cout << endl;
                             input.print();
-                            return 0;
                         }
                         break;
                     }
                     case 3: {
-                        cout << endl << "Das Programm wurde beendet" << endl;
-                        return 0;
+                        menu = false;
                         break;
                     }
                     default: {
@@ -205,7 +205,8 @@ int main() {
         }
         // */
         
-        return 0;  
+        cout << endl << "Das Programm wurde beendet" << endl;
+        return 0;
     } catch (NPV::Invalid) {
         cerr << "Fehlerhafte Daten";
         return 1;

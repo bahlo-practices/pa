@@ -38,10 +38,10 @@ void NPV::calculate() {
 }
 
 // Getter
-vector<long int> const NPV::get_inv() {
+vector<long int> NPV::get_inv() const {
     return inv;
 }
-double const NPV::get_irate() {
+double NPV::get_irate() const {
     return irate;
 }
 
@@ -54,7 +54,7 @@ void NPV::set_irate(double _irate) {
 }
 
 // Print
-void const NPV::print() {
+void NPV::print() const {
     cout << "Zahlungsreihe: ";
     for(int i = 0; i < inv.size(); i++) {
         cout << inv.at(i);

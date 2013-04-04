@@ -22,15 +22,15 @@ public:
     void calculate();
 
     // Getter
-    vector<long int> const get_inv();
-    double const get_irate();
+    vector<long int> get_inv() const;
+    double get_irate() const;
 
     // Setter
     void set_inv(vector<long int> _inv);
     void set_irate(double _irate);
 
     // Print
-    void const print();
+    void print() const;
 private:
     vector<long int> inv;
     double irate;
