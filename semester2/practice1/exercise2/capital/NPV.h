@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   NPV.h
  * Author: arne
  *
@@ -16,24 +16,20 @@ class NPV {
 public:
     NPV();
     NPV(vector<long int> inv, double irate);
-    NPV(vector<long int> inv, double irate, bool generateAndPrint);
-    
+
     class Invalid {}; // Invalid class for exceptions
-    
-    // Randomize
-    void randomize();
-    
+
     // Calculation
     void calculate();
-    
+
     // Getter
     vector<long int> const get_inv();
     double const get_irate();
-    
+
     // Setter
     void set_inv(vector<long int> inv);
     void set_irate(double irate);
-    
+
     // Print
     void const print();
 private:
