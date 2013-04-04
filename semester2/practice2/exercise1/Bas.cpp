@@ -15,6 +15,7 @@ void Bas::add_children(Bas* pointer) {
 }
 
 void Bas::print_children() const {
+    std::cout << "ALL the children of Bas:" << std::endl;
     for(int i = 0; i < deduced.size(); ++i) {
         std::cout << deduced.at(i) << std::endl;
     }
