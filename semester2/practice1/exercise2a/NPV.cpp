@@ -35,6 +35,8 @@ void NPV::calculate() {
     for (int i = 0; i < inv.size(); i++) {
         capital += inv.at(i) * (pow(1 + irate, -i));
     }
+    // Round capital
+    capital = floorf(capital * 1000 + 0.5) / 1000;
 }
 
 // Getter

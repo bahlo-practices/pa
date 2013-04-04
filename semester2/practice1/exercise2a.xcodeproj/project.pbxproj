@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14EFC1A0170D77AC00733DCF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC19D170D77AC00733DCF /* main.cpp */; };
-		14EFC1A1170D77AC00733DCF /* NPV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC19E170D77AC00733DCF /* NPV.cpp */; };
+		1411CBC8170D789900D4CE7F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBC5170D789900D4CE7F /* main.cpp */; };
+		1411CBC9170D789900D4CE7F /* NPV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBC6170D789900D4CE7F /* NPV.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,10 +24,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1411CBC5170D789900D4CE7F /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1411CBC6170D789900D4CE7F /* NPV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NPV.cpp; sourceTree = "<group>"; };
+		1411CBC7170D789900D4CE7F /* NPV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPV.h; sourceTree = "<group>"; };
 		14EFC191170D778000733DCF /* exercise2a */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = exercise2a; sourceTree = BUILT_PRODUCTS_DIR; };
-		14EFC19D170D77AC00733DCF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
-		14EFC19E170D77AC00733DCF /* NPV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NPV.cpp; sourceTree = SOURCE_ROOT; };
-		14EFC19F170D77AC00733DCF /* NPV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPV.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +60,9 @@
 		14EFC193170D778000733DCF /* exercise2a */ = {
 			isa = PBXGroup;
 			children = (
-				14EFC19D170D77AC00733DCF /* main.cpp */,
-				14EFC19E170D77AC00733DCF /* NPV.cpp */,
-				14EFC19F170D77AC00733DCF /* NPV.h */,
+				1411CBC5170D789900D4CE7F /* main.cpp */,
+				1411CBC6170D789900D4CE7F /* NPV.cpp */,
+				1411CBC7170D789900D4CE7F /* NPV.h */,
 			);
 			path = exercise2a;
 			sourceTree = "<group>";
@@ -118,8 +118,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14EFC1A0170D77AC00733DCF /* main.cpp in Sources */,
-				14EFC1A1170D77AC00733DCF /* NPV.cpp in Sources */,
+				1411CBC8170D789900D4CE7F /* main.cpp in Sources */,
+				1411CBC9170D789900D4CE7F /* NPV.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

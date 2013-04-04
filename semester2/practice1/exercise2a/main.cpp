@@ -17,6 +17,7 @@ void testcases() {
     vector<NPV> tests;
     
     // Testcase 1
+    // Funktioniert einwandfrei, Kapital: -234
     vector<long int> inv1;
     double irate1(0.0);
     
@@ -25,6 +26,7 @@ void testcases() {
     tests.push_back(NPV(inv1, irate1));
     
     // Testcase 2
+    // Funktioniert einwandfrei, Kapital: -5.89662
     vector<long int> inv2;
     double irate2(0.1337);
     
@@ -44,7 +46,8 @@ void testcases() {
 //    
 //    tests.push_back(NPV(inv3, irate3));
     
-    // Testcase 4 
+    // Testcase 4
+    // Funktioniert einwandfrei, Kapital: 0
     vector<long int> inv4;
     double irate4(0.01);
     
@@ -53,6 +56,7 @@ void testcases() {
     tests.push_back(NPV(inv4, irate4));
     
     // Testcase 5
+    // Funktioniert einwandfrei, Kapital: -500.5
     vector<long int> inv5;
     double irate5(1.00);
     
@@ -62,6 +66,7 @@ void testcases() {
     tests.push_back(NPV(inv5, irate5));
     
     // Testcase 6
+    // Funktioniert einwandfrei, Kapital: 1e+16
     vector<long int> inv6;
     double irate6(0.000001);
     
@@ -70,6 +75,7 @@ void testcases() {
     tests.push_back(NPV(inv6, irate6));
     
     // Testcase 7
+    // Funktioniert einwandfrei, Kapital: -99
     vector<long int> inv7;
     double irate7(0.99);
     
@@ -78,6 +84,7 @@ void testcases() {
     tests.push_back(NPV(inv7, irate7));
     
     // Testcase 8
+    // Funktioniert einwandfrei, Kapital: 1.875
     vector<long int> inv8;
     double irate8(1);
     
@@ -97,6 +104,7 @@ void testcases() {
     
     
     // Testcase 10
+    // Funktioniert einwandfrei, Kapital: 105.95
     vector<long int> inv10;
     double irate10(0.1);
     
@@ -117,11 +125,11 @@ void testcases() {
 int main() {
     try {
         // Ten random cases
-        for(int i = 0; i < 10; i++) {
-            NPV capital;
-            capital.calculate();
-            capital.print();
-        }
+//        for(int i = 0; i < 10; i++) {
+//            NPV capital;
+//            capital.calculate();
+//            capital.print();
+//        }
         
         testcases();
         
