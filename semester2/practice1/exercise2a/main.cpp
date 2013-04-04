@@ -1,6 +1,5 @@
 /* 
  * File:   main.cpp
- * Author: arne
  *
  * Created on 3. April 2013, 19:58
  */
@@ -36,15 +35,14 @@ void testcases() {
     tests.push_back(NPV(inv2, irate2));
     
     // Testcase 3
-    /* Funktioniert nicht wegen negativer irate
-    vector<long int> inv3;
-    double irate3(-0.008);
-    
-    inv3.push_back(100);
-    inv3.push_back(-1000);
-    
-    tests.push_back(NPV(inv3, irate3));
-    */
+    // Funktioniert nicht wegen negativer irate
+//    vector<long int> inv3;
+//    double irate3(-0.008);
+//    
+//    inv3.push_back(100);
+//    inv3.push_back(-1000);
+//    
+//    tests.push_back(NPV(inv3, irate3));
     
     // Testcase 4 
     vector<long int> inv4;
@@ -91,12 +89,12 @@ void testcases() {
     tests.push_back(NPV(inv8, irate8));
     
     // Testcase 9
-    /* Funktioniert nicht, weil irate über 100 %
-    vector<long int> inv9;
-    double irate9(1.99); // 199%
+    // Funktioniert nicht, weil irate über 100 %
+//    vector<long int> inv9;
+//    double irate9(1.99); // 199%
+//    
+//    tests.push_back(NPV(inv9, irate9));
     
-    tests.push_back(NPV(inv9, irate9));
-    */
     
     // Testcase 10
     vector<long int> inv10;
@@ -125,7 +123,7 @@ int main() {
             capital.print();
         }
         
-        // testcases();
+        testcases();
         
         // Custom test cases
         /*

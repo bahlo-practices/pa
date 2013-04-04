@@ -1,6 +1,5 @@
 /*
  * File:   NPV.h
- * Author: arne
  *
  * Created on 3. April 2013, 20:00
  */
