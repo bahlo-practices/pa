@@ -6,17 +6,19 @@
 //  Copyright (c) 2013 Arne Bahlo. All rights reserved.
 //
 
+#include <iostream>
+
 #include "Bas.h"
 
-Bas::Bas() : deduced() {}
+Bas::Bas() : next(0) {}
 
-void Bas::add_children(Bas* pointer) {
-    deduced.push_back(pointer);
-}
+// Define list
+Bas* Bas::list(0);
 
-void Bas::print_children() const {
-    std::cout << "ALL the children of Bas:" << std::endl;
-    for(int i = 0; i < deduced.size(); ++i) {
-        std::cout << deduced.at(i) << std::endl;
+// Print every object in list
+void Bas::print_all() const {
+    for(Bas* obj = list; obj; obj = obj->next ) {
+        // std::cout << obj << " "; //Print pointer for debugging
+        obj->print();
     }
 }

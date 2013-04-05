@@ -18,7 +18,7 @@ public:
     Pro();
     Pro(std::string _name, int _number);
     void increase();
-    void print();
+    void print() const;
     // Getter
     std::string get_name() const;
     int get_number() const;

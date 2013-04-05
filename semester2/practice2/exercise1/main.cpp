@@ -15,34 +15,33 @@
 
 int main() {
     try {
-        Bas base;
+        // Pro
+        Pro p0("Test", 1);
+        Pro p1("Mac OS X", 10);
+        Pro p2("20", 20);
+        Pro p3("12", -2);
+        Pro p4("IDK", 0);
         
-        // Add 5 new Pro pointers to vectors
-        std::vector<Pro*> pros;
-        pros.push_back(new Pro());
-        pros.push_back(new Pro("Mac OS X", 10));
-        pros.push_back(new Pro("20", 20));
-        //pros.push_back(new Pro(-12, "10")); // No matching constructor
-        //pros.push_back(new Pro('c', -5)); // Same as above
-        // Add to base
-        for(int i(0); i < pros.size(); ++i) {
-            base.add_children(pros.at(i));
-        }
+        Bas::list = &p0; // Write first entry in static list
+        p0.next = &p1;
+        p1.next = &p2;
+        p2.next = &p3;
+        p3.next = &p4;
         
-        // Add 5 new Roo pointers to vector
-        std::vector<Roo*> roos;
-        roos.push_back(new Roo("1234", "the secretly stored secret"));
-        //roos.push_back(new Roo("root", -12)); // No matching constructor
-        //roos.push_back(new Roo('c', "like a char"));
-        roos.push_back(new Roo("the breaking?", "bad"));
-        roos.push_back(new Roo("", "last but not least!"));
-        // Add to base
-        for(int i(0); i < roos.size(); ++i) {
-            base.add_children(roos.at(i));
-        }
+        // Roo
+        Roo r1("1234", "the secretly stored secret");
+        Roo r2("the breaking?", "bad");
+        Roo r3("", "last but not least!");
+        Roo r4("password", "hash");
+        Roo r5("or what?", "the secret data");
         
-        // Print pointers for debugging
-        base.print_children();
+        p4.next = &r1;
+        r1.next = &r2;
+        r2.next = &r3;
+        r3.next = &r4;
+        r4.next = &r5;
+        
+        Bas::list->print_all(); // Print all
         
         return 0;
     } catch(std::exception &e) {

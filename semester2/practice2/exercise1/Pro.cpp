@@ -15,7 +15,7 @@ void Pro::increase() {
     number = number + 1;
 }
 
-void Pro::print() {
+void Pro::print() const {
     std::cout << "Name: " << name << ", Nummer: " << number << std::endl;
 }
 

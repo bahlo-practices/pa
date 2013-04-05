@@ -15,10 +15,11 @@
 class Bas {
 public:
     Bas();
-    void add_children(Bas* pointer);
-    void print_children() const;
+    virtual void print() const {};
+    void print_all() const;
+    Bas* next;
+    static Bas* list;
 private:
-    std::vector<Bas*> deduced;
 };
 
 #endif /* defined(__exercise1__Bas__) */
