@@ -7,12 +7,13 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <sstream>
 
 #include "NPV.h"
 
 using namespace std;
 
-// Helper functions
+// Helper function to test
 void testcases() {
     vector<NPV> tests;
     
@@ -137,8 +138,9 @@ int main() {
         
         //* Menu
         bool menu(true); // Define variable to prevent showing the menu even from the deepest loops (where break wouldn't work)
+        int choice(0);
+        
         while(menu) {
-            int choice(0);
             cout << "Sie haben folgende Optionen:" << endl;
             cout << "(1) Zufällig generieren" << endl;
             cout << "(2) Eingeben" << endl;
@@ -147,60 +149,58 @@ int main() {
             
             cin >> choice;
             
-            if(cin) {
-                switch(choice) {
-                    case 1: {
-                        generateRandom();
-                        break;
-                    }
-                    case 2: {
-                        vector<long int> inv;
-                        double irate(0.0);
-                        
-                        bool prompt = true;
-                        while(prompt) {
-                            // Get rate
-                            cout << "Geben Sie den Zinssatz als dezimalzahl ein (0.5 = 50%): ";
-                            cin >> irate;
-                            if(!cin) throw runtime_error("\nFehlerhafte Eingabe! Das Programm wurde beendet.");
-                            if(irate < 0 || irate > 1) {
-                                cerr << endl << "Der Zinssatz muss zwischen 0 und 1 liegen!" << endl << endl;
-                                continue;
-                            }
-                            
-                            // Get invs
-                            cout << "Geben Sie ganze Zahlen ein und bestätigen Sie jeweils mit <Enter> (Beenden mit q):";
-                            while(true) {
-                                long int singleInv(0);
-                                cin >> singleInv;
-                                if(!cin) {
-                                    prompt = false;
-                                    break;
-                                }
-                                inv.push_back(singleInv);
-                            }
-                            
-                            // Create object
-                            NPV input(inv, irate);
-                            input.calculate();
-                            
-                            // Print object
-                            cout << endl;
-                            input.print();
-                        }
-                        break;
-                    }
-                    case 3: {
-                        menu = false;
-                        break;
-                    }
-                    default: {
-                        cerr << endl << "Bitte geben Sie eine Zahl zwischen 1 und 3 ein!" << endl << endl;
-                        break;
-                    }
+            switch(choice) {
+                case 1: {
+                    generateRandom();
+                    break;
                 }
-            } else {
-                throw runtime_error("\nFehlerhafte Eingabe! Das Programm wurde beendet.");
+                case 2: {
+                    vector<long int> inv;
+                    double irate(0.0);
+
+                    // Get rate
+                    cout << "Geben Sie den Zinssatz als dezimalzahl ein (0.5 = 50%): ";
+                    cin >> irate;
+                    if(!cin) throw runtime_error("\nFehlerhafte Eingabe! Das Programm wurde beendet.");
+                    if(irate < 0 || irate > 1) {
+                        throw runtime_error("Der Zinssatz muss zwischen 0 und 1 liegen!");
+                    }
+
+                    // Get invs
+                    cout << "Geben Sie ganze Zahlen ein und bestätigen Sie jeweils mit <Enter> (Beenden mit q):";
+                    while(true) {
+                        string inputString  = "";
+                        long int number(0);
+                        
+                        cin >> inputString;
+                        
+                        if(inputString == "q") {
+                            break;
+                        } else {
+                            stringstream str;
+                            str << inputString;
+                            str >> number;
+                            inv.push_back(number);
+                        }
+                    }
+
+                    // Create object
+                    NPV input(inv, irate);
+                    input.calculate();
+
+                    // Print object
+                    cout << endl;
+                    input.print();
+                    break;
+                }
+                case 3: {
+                    menu = false;
+                    break;
+                }
+                default: {
+                    cerr << endl << "Bitte geben Sie eine Zahl zwischen 1 und 3 ein!" << endl << endl;
+                    break;
+                }
             }
         }
         // */

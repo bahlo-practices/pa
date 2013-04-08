@@ -15,7 +15,8 @@ NPV::NPV() : capital(0.0) {
     // Randomize data
     // Generate random inv
     for(int i = 0; i < 20; i++) {
-        long int number = rand() % 200000 - 100000;
+        long int number = rand() % 100000;
+        if(rand() % 2 == 1) number = number * -1;
         inv.push_back(number);
     }
     // Generate random rate between 0 % and 10.0 %
