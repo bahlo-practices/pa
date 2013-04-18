@@ -1,4 +1,4 @@
-# Testcases
+# Testfälle
 
 <table>
     <thead>
