@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1411CBD7170DD61000D4CE7F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBD6170DD61000D4CE7F /* main.cpp */; };
-		1411CBD9170DD61000D4CE7F /* exercise1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1411CBD8170DD61000D4CE7F /* exercise1.1 */; };
 		1411CBE1170DD63800D4CE7F /* Bas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBDF170DD63800D4CE7F /* Bas.cpp */; };
 		1411CBE4170DD6E200D4CE7F /* Pro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBE2170DD6E200D4CE7F /* Pro.cpp */; };
 		1411CBE7170DD6ED00D4CE7F /* Roo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1411CBE5170DD6ED00D4CE7F /* Roo.cpp */; };
@@ -21,7 +20,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				1411CBD9170DD61000D4CE7F /* exercise1.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -30,7 +28,6 @@
 /* Begin PBXFileReference section */
 		1411CBD3170DD61000D4CE7F /* exercise1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = exercise1; sourceTree = BUILT_PRODUCTS_DIR; };
 		1411CBD6170DD61000D4CE7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1411CBD8170DD61000D4CE7F /* exercise1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = exercise1.1; sourceTree = "<group>"; };
 		1411CBDF170DD63800D4CE7F /* Bas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bas.cpp; sourceTree = "<group>"; };
 		1411CBE0170DD63800D4CE7F /* Bas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bas.h; sourceTree = "<group>"; };
 		1411CBE2170DD6E200D4CE7F /* Pro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pro.cpp; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 				1411CBDF170DD63800D4CE7F /* Bas.cpp */,
 				1411CBE2170DD6E200D4CE7F /* Pro.cpp */,
 				1411CBE5170DD6ED00D4CE7F /* Roo.cpp */,
-				1411CBD8170DD61000D4CE7F /* exercise1.1 */,
 			);
 			path = exercise1;
 			sourceTree = "<group>";
@@ -242,6 +238,7 @@
 				1411CBDE170DD61000D4CE7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

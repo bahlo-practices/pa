@@ -2,9 +2,6 @@
 //  Pro.h
 //  exercise1
 //
-//  Created by Arne Bahlo on 04.04.13.
-//  Copyright (c) 2013 Arne Bahlo. All rights reserved.
-//
 
 #ifndef __exercise1__Pro__
 #define __exercise1__Pro__
@@ -29,6 +26,5 @@ private:
     std::string name;
     int number;
 };
-
 
 #endif /* defined(__exercise1__Pro__) */

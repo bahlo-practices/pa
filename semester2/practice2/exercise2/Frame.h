@@ -1,23 +1,35 @@
-//
-//  Frame.h
-//  exercise2
-//
-//  Created by Arne Bahlo on 04.04.13.
-//  Copyright (c) 2013 Arne Bahlo. All rights reserved.
-//
+/* 
+ * File:   Frame.h
+ *
+ * Created on 11. April 2013, 14:21
+ */
 
-#ifndef __exercise2__Frame__
-#define __exercise2__Frame__
+#ifndef FRAME_H
+#define	FRAME_H
 
 #include <iostream>
+#include <ctime>
 
-#include "Shape.h"
+const int xMax = 100; // Zeichen pro Frame-Zeile
+const int yMax = 100; // Zeilen pro Frame
 
-class Frame : public Shape {
+class Frame {
 public:
+    enum color {
+        black = '.', white = '*'
+    };
     Frame();
-    
+    Frame(int x, int y);
+    void put_point(int x, int y); // Punkt im Frame speichern 
+    void reset(); // Frame leeren
+    void show() const; // Frame auf die Konsole ausgeben 
+    void frame_dump() const;
+    bool on_frame(int x, int y) const; // "Clipping"
 private:
+    char frame[xMax][yMax];
 };
 
-#endif /* defined(__exercise2__Frame__) */
+std::ostream& operator<<(std::ostream& os, const Frame* fr);
+
+#endif	/* FRAME_H */
+

@@ -2,9 +2,6 @@
 //  Roo.h
 //  exercise1
 //
-//  Created by Arne Bahlo on 04.04.13.
-//  Copyright (c) 2013 Arne Bahlo. All rights reserved.
-//
 
 #ifndef __exercise1__Roo__
 #define __exercise1__Roo__

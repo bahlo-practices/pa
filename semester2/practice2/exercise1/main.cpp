@@ -2,9 +2,6 @@
 //  main.cpp
 //  exercise1
 //
-//  Created by Arne Bahlo on 04.04.13.
-//  Copyright (c) 2013 Arne Bahlo. All rights reserved.
-//
 
 #include <iostream>
 #include <vector>
@@ -40,6 +37,19 @@ int main() {
         r2.next = &r3;
         r3.next = &r4;
         r4.next = &r5;
+        
+        /* Testfälle
+        Bas test1;
+        Roo test2("wasd", "asdasd");
+        r5.next = &test1; // Bas' print() ist leer
+        r1.next = 0; // Liste hört nach r1 auf
+        p4.next = &test2; // p4 überschrieben, keine nachfolgenden
+        // r1.next = -1; // failt, weil falscher Typ
+        // test2.next = &Roo("einfach", "e"); // Direkt zuweisen geht nicht
+        // test2.next = *Pro("eins", 0); // Mit Pointer logischerweise auch nicht
+        // test2->print_all(); // Kein pointer
+        // p4.next = &p3; // Endlosschleife
+        // */
         
         Bas::list->print_all(); // Print all
         
