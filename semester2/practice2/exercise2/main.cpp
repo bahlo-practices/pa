@@ -64,10 +64,10 @@ int main(int argc, char** argv) {
 
     try {
 
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 50;
-        int y2 = 20;
+        int x1 = 5;
+        int y1 = 11;
+        int x2 = 1;
+        int y2 = 1;
 
         Frame frame1;
         //frame1.reset();

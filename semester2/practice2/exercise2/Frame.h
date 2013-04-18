@@ -10,8 +10,8 @@
 #include <iostream>
 #include <ctime>
 
-const int xMax = 100; // Zeichen pro Frame-Zeile
-const int yMax = 100; // Zeilen pro Frame
+const int xMax = 1000; // Zeichen pro Frame-Zeile
+const int yMax = 1000; // Zeilen pro Frame
 
 class Frame {
 public:

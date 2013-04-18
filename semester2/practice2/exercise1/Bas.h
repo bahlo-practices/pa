@@ -12,7 +12,7 @@
 class Bas {
 public:
     Bas();
-    virtual void print() const {};
+    virtual void print() const = 0;
     void print_all() const;
     Bas* next;
     static Bas* list;

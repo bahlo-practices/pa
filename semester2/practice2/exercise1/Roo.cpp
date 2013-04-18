@@ -3,10 +3,14 @@
 //  exercise1
 //
 
+#include <stdexcept>
+
 #include "Roo.h"
 
 Roo::Roo() : password(""), secret("") {};
-Roo::Roo(std::string _password, std::string _secret) : password(_password), secret(_secret) {};
+Roo::Roo(std::string _password, std::string _secret) : password(_password), secret(_secret) {
+    if(_secret == "" || _password == "") throw std::runtime_error("Zu wenig Daten!");
+};
 
 void Roo::print() const {
     std::cout << "Passwort: " << password << ", Secret: " << secret << std::endl;

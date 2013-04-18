@@ -16,7 +16,7 @@ int main() {
         Pro p0("Test", 1);
         Pro p1("Mac OS X", 10);
         Pro p2("20", 20);
-        Pro p3("12", -2);
+        Pro p3("12", 2);
         Pro p4("IDK", 0);
         
         Bas::list = &p0; // Write first entry in static list
@@ -39,9 +39,9 @@ int main() {
         r4.next = &r5;
         
         /* Testfälle
-        Bas test1;
+        // Bas test1;
         Roo test2("wasd", "asdasd");
-        r5.next = &test1; // Bas' print() ist leer
+        // r5.next = &test1; // Bas' print() ist leer
         r1.next = 0; // Liste hört nach r1 auf
         p4.next = &test2; // p4 überschrieben, keine nachfolgenden
         // r1.next = -1; // failt, weil falscher Typ
@@ -54,7 +54,7 @@ int main() {
         Bas::list->print_all(); // Print all
         
         return 0;
-    } catch(std::exception &e) {
+    } catch(std::runtime_error &e) {
         std::cerr << std::endl << "Exception: " << e.what() << std::endl;
     } catch(...) {
         std::cerr << std::endl << "Ein unbekannter Fehler ist aufgetreten!" << std::endl;

@@ -13,7 +13,7 @@ Frame::Frame() : frame() {
 };
 
 void Frame::show() const {
-    /* Alte version
+    /* Alte version 
     for (int i = 0; i < yMax; i++) {
         for (int j = 0; j < xMax; j++) {
             std::cout << frame[j][yMax - i - 1];

@@ -8,9 +8,12 @@
 #include "Pro.h"
 
 Pro::Pro() : name(""), number(0) {};
-Pro::Pro(std::string _name, int _number) : name(_name), number(_number) {};
+Pro::Pro(std::string _name, int _number) : name(_name), number(_number) {
+    if(_number < 0) throw std::runtime_error("Die Zahl darf nicht kleiner als 0 sein!");
+};
 
 void Pro::increase() {
+    if(number + 1 < 0) throw std::runtime_error("Zahl zu groß!");
     number = number + 1;
 }
 
