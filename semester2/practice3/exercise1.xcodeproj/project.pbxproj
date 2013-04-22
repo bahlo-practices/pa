@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		149CB9F6172564AC00D74F8D /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149CB9F4172564AC00D74F8D /* Triangle.cpp */; };
 		149DD95F172557D3001F1FEE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD95E172557D3001F1FEE /* main.cpp */; };
 		149DD969172557F5001F1FEE /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD967172557F5001F1FEE /* Frame.cpp */; };
 		149DD96D1725585C001F1FEE /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD96B1725585C001F1FEE /* Shape.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		149CB9F4172564AC00D74F8D /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		149CB9F5172564AC00D74F8D /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
 		149DD95B172557D3001F1FEE /* exercise1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = exercise1; sourceTree = BUILT_PRODUCTS_DIR; };
 		149DD95E172557D3001F1FEE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		149DD967172557F5001F1FEE /* Frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Frame.cpp; sourceTree = "<group>"; };
@@ -67,10 +70,11 @@
 			isa = PBXGroup;
 			children = (
 				149DD96A172557F9001F1FEE /* Headers */,
-				149DD95E172557D3001F1FEE /* main.cpp */,
 				149DD967172557F5001F1FEE /* Frame.cpp */,
 				149DD96B1725585C001F1FEE /* Shape.cpp */,
 				149DD96E17255887001F1FEE /* Line.cpp */,
+				149CB9F4172564AC00D74F8D /* Triangle.cpp */,
+				149DD95E172557D3001F1FEE /* main.cpp */,
 			);
 			path = exercise1;
 			sourceTree = "<group>";
@@ -81,6 +85,7 @@
 				149DD968172557F5001F1FEE /* Frame.h */,
 				149DD96C1725585C001F1FEE /* Shape.h */,
 				149DD96F17255887001F1FEE /* Line.h */,
+				149CB9F5172564AC00D74F8D /* Triangle.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				149DD969172557F5001F1FEE /* Frame.cpp in Sources */,
 				149DD96D1725585C001F1FEE /* Shape.cpp in Sources */,
 				149DD97017255887001F1FEE /* Line.cpp in Sources */,
+				149CB9F6172564AC00D74F8D /* Triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +244,7 @@
 				149DD966172557D3001F1FEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

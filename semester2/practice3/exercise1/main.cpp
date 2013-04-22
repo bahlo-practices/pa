@@ -11,6 +11,7 @@
 
 #include "Frame.h"
 #include "Line.h"
+#include "Triangle.h"
 
 int main(int argc, char** argv) {
     try {
@@ -18,13 +19,22 @@ int main(int argc, char** argv) {
         int y1 = 11;
         int x2 = 1;
         int y2 = 1;
-
-        Frame frame1;
-        Line line1(x1, y1, x2, y2);
-        //frame1.reset();
-        //frame1.show();
-        line1.draw(&frame1);
         
+        Frame frame1;
+        
+        // Line
+        Line line1(x1, y1, x2, y2);
+        //line1.draw(&frame1);
+        
+        // Triangle
+        x1 = 10;
+        y1 = 5;
+        x2 = 0;
+        y2 = 0;
+        int x3 = 20;
+        int y3 = 0;
+        Triangle triangle1(x1, y1, x2, y2, x3, y3);
+        triangle1.draw(&frame1);
 
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
