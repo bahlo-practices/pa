@@ -17,10 +17,11 @@ class Triangle : public Shape {
 public:
     Triangle();
     Triangle(int _x1, int _y1, int _x2, int _y2, int _x3, int _y3);
+    Triangle(int hor, int ver, int len1, int len2, int len3);
     void move(int x, int y);
     void draw(Frame*);
 private:
-    bool is_valid();
+    bool is_valid(Frame*);
     int x1;
     int y1;
     int y2;

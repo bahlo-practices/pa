@@ -34,7 +34,11 @@ int main(int argc, char** argv) {
         int x3 = 20;
         int y3 = 0;
         Triangle triangle1(x1, y1, x2, y2, x3, y3);
-        triangle1.draw(&frame1);
+        //triangle1.draw(&frame1);
+        
+        // Triangle c)
+        Triangle triangle2(0, 0, 10, 10, 20);
+        triangle2.draw(&frame1);
 
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
