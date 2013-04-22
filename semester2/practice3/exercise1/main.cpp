@@ -38,7 +38,43 @@ int main(int argc, char** argv) {
         
         // Triangle c)
         Triangle triangle2(0, 0, 10, 10, 20);
-        triangle2.draw(&frame1);
+        //triangle2.draw(&frame1);
+        
+        /*/ Testfälle
+        // 1
+        Line line3;
+        line3.draw(&frame1);
+        // 2
+        Line line4(0, -10, 0, 0);
+        // line4.draw(&frame1);
+        // 3
+        Line line5(3, 0, 10, 10);
+        Line line6(3, 10, 10, 0);
+        line5.draw(&frame1);
+        line6.draw(&frame1);
+        // 4
+        // Line line7(100, 20);
+        // 5
+        Line line8(0, 99, 99, 0);
+        line8.draw(&frame1);
+        // 6
+        Triangle triangle3;
+        // triangle3.draw(&frame1);
+        // 7
+        Triangle triangle4(50, 99, 99, 0, 0, 0);
+        triangle4.draw(&frame1);
+        // 8
+        Triangle triangle5(20, 20, 40, 20, 30);
+        triangle5.draw(&frame1);
+        // 9
+        Triangle triangle6(10, 10, 20, 0, 0, 0);
+        triangle6.move(10, 20);
+        triangle6.draw(&frame1);
+        // 10
+        Triangle triangle7(40, 50, 60, 30, 30, 30);
+        triangle7.move(-20, -10);
+        triangle7.draw(&frame1);
+        // */
 
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
