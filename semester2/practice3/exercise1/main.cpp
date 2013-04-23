@@ -12,6 +12,7 @@
 #include "Frame.h"
 #include "Line.h"
 #include "Triangle.h"
+#include "Rectangle.h"
 
 int main(int argc, char** argv) {
     try {
@@ -61,19 +62,25 @@ int main(int argc, char** argv) {
         Triangle triangle3;
         // triangle3.draw(&frame1);
         // 7
-        Triangle triangle4(50, 99, 99, 0, 0, 0);
+        Triangle triangle4(0, 0, 50, 99, 99, 0);
         triangle4.draw(&frame1);
         // 8
-        Triangle triangle5(20, 20, 40, 20, 30);
+        Triangle triangle5(20, 30, 20, 20, 40);
         triangle5.draw(&frame1);
         // 9
-        Triangle triangle6(10, 10, 20, 0, 0, 0);
+        Triangle triangle6(0, 0, 10, 10, 20, 0);
         triangle6.move(10, 20);
         triangle6.draw(&frame1);
         // 10
-        Triangle triangle7(40, 50, 60, 30, 30, 30);
+        Triangle triangle7(30, 30, 40, 50, 60, 30);
         triangle7.move(-20, -10);
         triangle7.draw(&frame1);
+        // */
+        
+        // Rechteck
+        frame1.reset();
+        Rectangle rectangle1(20, 20, 0, 0);
+        rectangle1.draw(&frame1);
         // */
 
         clock_t start = clock_t(-1);

@@ -12,6 +12,7 @@
 		149DD969172557F5001F1FEE /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD967172557F5001F1FEE /* Frame.cpp */; };
 		149DD96D1725585C001F1FEE /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD96B1725585C001F1FEE /* Shape.cpp */; };
 		149DD97017255887001F1FEE /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD96E17255887001F1FEE /* Line.cpp */; };
+		14C169F9172704C000A9923C /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14C169F7172704C000A9923C /* Rectangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		149DD96C1725585C001F1FEE /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		149DD96E17255887001F1FEE /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
 		149DD96F17255887001F1FEE /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		14C169F7172704C000A9923C /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		14C169F8172704C000A9923C /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 				149DD96B1725585C001F1FEE /* Shape.cpp */,
 				149DD96E17255887001F1FEE /* Line.cpp */,
 				149CB9F4172564AC00D74F8D /* Triangle.cpp */,
+				14C169F7172704C000A9923C /* Rectangle.cpp */,
 				149DD95E172557D3001F1FEE /* main.cpp */,
 			);
 			path = exercise1;
@@ -86,6 +90,7 @@
 				149DD96C1725585C001F1FEE /* Shape.h */,
 				149DD96F17255887001F1FEE /* Line.h */,
 				149CB9F5172564AC00D74F8D /* Triangle.h */,
+				14C169F8172704C000A9923C /* Rectangle.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				149DD96D1725585C001F1FEE /* Shape.cpp in Sources */,
 				149DD97017255887001F1FEE /* Line.cpp in Sources */,
 				149CB9F6172564AC00D74F8D /* Triangle.cpp in Sources */,
+				14C169F9172704C000A9923C /* Rectangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
