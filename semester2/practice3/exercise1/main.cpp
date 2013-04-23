@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
         Triangle triangle2(0, 0, 10, 10, 20);
         //triangle2.draw(&frame1);
         
-        /*/ Testfälle
+        // Testfälle
         // 1
         Line line3;
         line3.draw(&frame1);
