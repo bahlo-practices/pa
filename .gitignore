@@ -1,40 +1,22 @@
-############
-## Windows
-############
-
-# Windows image file caches
+# Windows
 Thumbs.db
-
-# Folder config file
 Desktop.ini
 
-#############
-## Mac
-#############
+# Mac
 .DS_Store
 
-#############
-## C++
-#############
-
-# Compiled Object files
+# C++
 *.slo
 *.lo
 *.o
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
-/semester1/practise6/exercise3/dist/
-/semester1/practise6/exercise3/build/
-/semester1/practise6/exercise1/build/
-/semester1/practise6/exercise1/dist/
-/semester1/practise6/exercise2/build/
-/semester1/practise6/exercise2/dist/
-/semester2/practice1/exercise2/capital/build/
-/semester2/practice1/exercise2/capital/dist/
+dist/
+build/
+
+# IDE stuff
+.xcodeproj
+nbproject/
