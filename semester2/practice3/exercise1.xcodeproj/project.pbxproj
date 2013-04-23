@@ -13,6 +13,7 @@
 		149DD96D1725585C001F1FEE /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD96B1725585C001F1FEE /* Shape.cpp */; };
 		149DD97017255887001F1FEE /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 149DD96E17255887001F1FEE /* Line.cpp */; };
 		14C169F9172704C000A9923C /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14C169F7172704C000A9923C /* Rectangle.cpp */; };
+		14C169FC17270F9700A9923C /* Lozenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 14C169FA17270F9700A9923C /* Lozenge.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		149DD96F17255887001F1FEE /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14C169F7172704C000A9923C /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
 		14C169F8172704C000A9923C /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
+		14C169FA17270F9700A9923C /* Lozenge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lozenge.cpp; sourceTree = "<group>"; };
+		14C169FB17270F9700A9923C /* Lozenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lozenge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 				149DD96E17255887001F1FEE /* Line.cpp */,
 				149CB9F4172564AC00D74F8D /* Triangle.cpp */,
 				14C169F7172704C000A9923C /* Rectangle.cpp */,
+				14C169FA17270F9700A9923C /* Lozenge.cpp */,
 				149DD95E172557D3001F1FEE /* main.cpp */,
 			);
 			path = exercise1;
@@ -91,6 +95,7 @@
 				149DD96F17255887001F1FEE /* Line.h */,
 				149CB9F5172564AC00D74F8D /* Triangle.h */,
 				14C169F8172704C000A9923C /* Rectangle.h */,
+				14C169FB17270F9700A9923C /* Lozenge.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				149DD97017255887001F1FEE /* Line.cpp in Sources */,
 				149CB9F6172564AC00D74F8D /* Triangle.cpp in Sources */,
 				14C169F9172704C000A9923C /* Rectangle.cpp in Sources */,
+				14C169FC17270F9700A9923C /* Lozenge.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,7 +29,7 @@ void Rectangle::draw(Frame* fr) {
      * |             |
      * x1y1-------x2y1
      */
-    if(x1 > x2 || y1 > y2) {
+    if(x1 > x2 && y1 > y2) {
         std::swap(x1, x2);
         std::swap(y1, y2);
     }

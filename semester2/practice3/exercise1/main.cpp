@@ -13,6 +13,7 @@
 #include "Line.h"
 #include "Triangle.h"
 #include "Rectangle.h"
+#include "Lozenge.h"
 
 int main(int argc, char** argv) {
     try {
@@ -75,13 +76,19 @@ int main(int argc, char** argv) {
         Triangle triangle7(30, 30, 40, 50, 60, 30);
         triangle7.move(-20, -10);
         triangle7.draw(&frame1);
-        // */
+        //*/
         
-        // Rechteck
+        /*/ Rechteck
         frame1.reset();
         Rectangle rectangle1(20, 20, 0, 0);
         rectangle1.draw(&frame1);
-        // */
+        //*/
+        
+        /*/ Raute
+        frame1.reset();
+        Lozenge lozenge1(0, 10, 20, 20);
+        lozenge1.draw(&frame1);
+        //*/
 
         clock_t start = clock_t(-1);
         clock_t end = clock_t(-1);
