@@ -64,8 +64,10 @@ void Triangle::draw(Frame* fr) {
 bool Triangle::is_valid(Frame* fr) {
     return (
         fr->on_frame(x1, y1) && fr->on_frame(x2, y2) && fr->on_frame(x3, y3) // Auf dem Frame
+/*      Nicht notwendig, alles ist ein Dreieck!
         && y2 > y1 // Punkt 1 höher als Punkt 2 (und damit auch 3)
         && y1 == y3 // Punkt 2 und 3 auf gleicher höhe
         && x3 > x1 // Punkt 2 weiter rechts als Punkt 3
+ */
     );
 }

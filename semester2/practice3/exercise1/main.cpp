@@ -29,20 +29,20 @@ int main(int argc, char** argv) {
         //line1.draw(&frame1);
         
         // Triangle
-        x1 = 10;
-        y1 = 5;
-        x2 = 0;
-        y2 = 0;
+        x1 = 0;
+        y1 = 0;
+        x2 = 10;
+        y2 = 10;
         int x3 = 20;
         int y3 = 0;
         Triangle triangle1(x1, y1, x2, y2, x3, y3);
-        //triangle1.draw(&frame1);
+        triangle1.draw(&frame1);
         
         // Triangle c)
         Triangle triangle2(0, 0, 10, 10, 20);
-        //triangle2.draw(&frame1);
+        triangle2.draw(&frame1);
         
-        // Testfälle
+        /*/ Testfälle
         // 1
         Line line3;
         line3.draw(&frame1);
@@ -78,15 +78,15 @@ int main(int argc, char** argv) {
         triangle7.draw(&frame1);
         //*/
         
-        /*/ Rechteck
-        frame1.reset();
-        Rectangle rectangle1(20, 20, 0, 0);
+        // Rechteck
+        // frame1.reset();
+        Rectangle rectangle1(25, 0, 45, 10);
         rectangle1.draw(&frame1);
         //*/
         
-        /*/ Raute
-        frame1.reset();
-        Lozenge lozenge1(0, 10, 20, 20);
+        // Raute
+        // frame1.reset();
+        Lozenge lozenge1(50, 5, 60, 10);
         lozenge1.draw(&frame1);
         //*/
 
