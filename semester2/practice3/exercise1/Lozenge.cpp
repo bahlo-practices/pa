@@ -17,7 +17,6 @@ Lozenge::Lozenge(int _x1, int _y1, int _x2, int _y2) : x1(_x1), y1(_y1), x2(_x2)
     y3 = y1;
     x4 = x2;
     y4 = (y2 - y1) * 2 - y2;
-    
 }
 
 void Lozenge::move(int x, int y) {

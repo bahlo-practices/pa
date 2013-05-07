@@ -68,5 +68,5 @@ void Line::draw(Frame* fr) {
                 dXY += 2 * (dY - dX);
             }
         }
-    } else std::cout << "Ermitteln der Punkte nicht möglich, da Punkte nicht auf Frame\n";
+    } else throw std::runtime_error ( "Ermitteln der Punkte nicht möglich, da Punkte nicht auf Frame" );
 }
