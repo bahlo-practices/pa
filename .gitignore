@@ -21,3 +21,5 @@ build/
 *.xcodeproj/
 nbproject/
 .dep.inc
+Makefile
+*.stackdump
