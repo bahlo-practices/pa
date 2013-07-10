@@ -19,6 +19,7 @@ public:
     const void addLineNumber(int lineNumber);
     const std::string getWord();
     const std::list<int> getLineNumbers();
+    const std::string getLineNumbersAsString();
     const void print();
 private:
     std::string word;

@@ -4,9 +4,6 @@
 //
 //  Created by Arne Bahlo on 09.07.13.
 //  Copyright (c) 2013 Arne Bahlo. All rights reserved.
-//  ToDo:
-//  - Give out the sorted words (first nomen, then acronyms, alphabetically)
-//  - Write to "Index.txt"
 //
 
 #include <iostream>
@@ -14,13 +11,18 @@
 #include <map>
 #include <locale>
 #include <stdexcept>
+#include <sstream>
+#include <iterator>
 #include "Word.h"
 #include "Nomen.h"
 #include "Akronym.h"
 
 // Helper functions
-void addWordToMap(std::multimap<std::string, Word*> &map, Word &word) {
-    std::multimap<std::string, Word*>::iterator it = map.find(word.getWord());
+typedef std::multimap<std::string, Word*> wordMap;
+typedef std::pair<std::string, Word*> wordPair;
+
+void addWordToMap(wordMap &map, Word &word) {
+    wordMap::iterator it = map.find(word.getWord());
     if(it != map.end()) {
         std::list<int> lineNumbers = word.getLineNumbers();
         int firstLineNumber(0);
@@ -29,14 +31,20 @@ void addWordToMap(std::multimap<std::string, Word*> &map, Word &word) {
         }
         it->second->addLineNumber(firstLineNumber);
     } else {
-        map.insert(std::pair<std::string, Word*>(word.getWord(), &word));
+        map.insert(wordPair(word.getWord(), &word));
     }
 }
 
-void printMap(std::multimap<std::string, Word*> &map) {
-    for(std::map<std::string, Word*>::iterator it = map.begin();it != map.end();++it)
+void printMap(wordMap &map) {
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
         it->second->print();
 }
+
+void writeMap(wordMap &map, std::ostream &output) {
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
+        output << it->second->getWord() << " " << it->second->getLineNumbersAsString() << std::endl;
+}
+
 
 bool isNomen(const std::string &word) {
     char tempChar(' ');
@@ -76,7 +84,7 @@ int main(int argc, const char * argv[]) {
     try {
         setlocale(LC_ALL, "");
         std::locale loc;
-        std::multimap<std::string, Word*> words;
+        wordMap words;
 
         // Define vars
         std::string filename = "Erlrouter.txt";
@@ -87,6 +95,16 @@ int main(int argc, const char * argv[]) {
         // Open file
         std::ifstream book(filename.c_str());
         if(!book.is_open()) throw std::runtime_error("Die Datei \"" + filename + "\" konnte nicht geöffnet werden!");
+        
+/*      Get line || get word
+        std::string line("");
+        std::istream_iterator<std::string> iiter(book);
+        std::istream_iterator<std::string> eos;
+        for(int i = 0;i<=2;++i)
+            std::cout << *iiter++ << std::endl; // Read word
+            getline(book, line);
+        std::cout << line << std::endl;
+*/
 
         // Go through file and read in char-by-char
         do {
@@ -111,6 +129,11 @@ int main(int argc, const char * argv[]) {
         book.close(); // Close file
         
         printMap(words);
+        
+        // Write to Index.txt
+        std::string outputFilename("Index.txt");
+        std::ofstream index(outputFilename.c_str());
+        writeMap(words, index);
 
         return 0;
     } catch(std::exception &e) {
