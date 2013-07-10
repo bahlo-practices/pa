@@ -20,6 +20,7 @@ public:
     const std::string getWord();
     const std::list<int> getLineNumbers();
     const std::string getLineNumbersAsString();
+    const bool operator< (const Word &w);
     const void print();
 private:
     std::string word;

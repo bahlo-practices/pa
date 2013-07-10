@@ -35,6 +35,10 @@ const void Word::addLineNumber(int lineNumber) {
     lineNumbers.push_back(lineNumber);
 }
 
+const bool Word::operator< (const Word &w) {
+    return word < w.word;
+}
+
 const void Word::print() {
     std::cout << word << " " << getLineNumbersAsString() << std::endl;
 }

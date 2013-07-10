@@ -35,30 +35,24 @@ void addWordToMap(wordMap &map, Word &word) {
     }
 }
 
-void printMap(wordMap &map) {
-    for(wordMap::iterator it = map.begin();it != map.end();++it)
-        it->second->print();
-}
-
-void writeMap(wordMap &map, std::ostream &output) {
-    for(wordMap::iterator it = map.begin();it != map.end();++it)
-        output << it->second->getWord() << " " << it->second->getLineNumbersAsString() << std::endl;
-}
-
-
 bool isNomen(const std::string &word) {
     char tempChar(' ');
     char firstChar = word.at(0);
+    int capitalLetters(0);
     int letterCount(0);
     for(int i = 0;i < word.length();++i) {
         tempChar = word.at(i);
-        if(isalpha(tempChar)) {
+        if(tempChar > 64 && tempChar < 91) {
+            // Capital letters
+            capitalLetters++;
+            letterCount++;
+        } else if(tempChar > 96 && tempChar < 123) {
             letterCount++;
         } else {
             return false;
         }
     }
-    return letterCount >= 4 && firstChar> 64 && firstChar < 91;
+    return letterCount >= 4 && firstChar> 64 && firstChar < 91 && capitalLetters == 1;
 }
 
 bool isAkronym(const std::string &word) {
@@ -78,6 +72,24 @@ bool isAkronym(const std::string &word) {
         }
     }
     return capitalLetters >= 2;
+}
+
+void printMap(wordMap &map) {
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
+        if(isNomen(it->second->getWord()))
+            it->second->print();
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
+        if(isAkronym(it->second->getWord()))
+            it->second->print();
+}
+
+void writeMap(wordMap &map, std::ostream &output) {
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
+        if(isNomen(it->second->getWord()))
+            output << it->second->getWord() << " " << it->second->getLineNumbersAsString() << std::endl;
+    for(wordMap::iterator it = map.begin();it != map.end();++it)
+        if(isAkronym(it->second->getWord()))
+            output << it->second->getWord() << " " << it->second->getLineNumbersAsString() << std::endl;
 }
 
 int main(int argc, const char * argv[]) {
@@ -134,7 +146,7 @@ int main(int argc, const char * argv[]) {
         std::string outputFilename("Index.txt");
         std::ofstream index(outputFilename.c_str());
         writeMap(words, index);
-
+        
         return 0;
     } catch(std::exception &e) {
         std::cerr << e.what() << std::endl;
